@@ -5,6 +5,47 @@
     <link>https://themagitian.github.io/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://themagitian.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Nov 2023 22:27:40 +0530</lastBuildDate><atom:link href="https://themagitian.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs</title>
+      <link>https://themagitian.github.io/tags/emacs/</link>
+      <pubDate>Tue, 07 Nov 2023 22:27:40 +0530</pubDate>
+      
+      <guid>https://themagitian.github.io/tags/emacs/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>https://themagitian.github.io/tags/vim/</link>
+      <pubDate>Tue, 07 Nov 2023 22:27:40 +0530</pubDate>
+      
+      <guid>https://themagitian.github.io/tags/vim/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Arch</title>
+      <link>https://themagitian.github.io/tags/arch/</link>
+      <pubDate>Tue, 07 Nov 2023 22:18:18 +0530</pubDate>
+      
+      <guid>https://themagitian.github.io/tags/arch/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://themagitian.github.io/tags/linux/</link>
+      <pubDate>Tue, 07 Nov 2023 22:18:18 +0530</pubDate>
+      
+      <guid>https://themagitian.github.io/tags/linux/</guid>
+      <description></description>
+      <content></content>
+    </item>
+    
   </channel>
 </rss>

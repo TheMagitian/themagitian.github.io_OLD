@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on </title>
+    <link>https://themagitian.github.io/tags/emacs/</link>
+    <description>Recent content in Emacs on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Nov 2023 22:27:40 +0530</lastBuildDate><atom:link href="https://themagitian.github.io/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim VS Emacs</title>
+      <link>https://themagitian.github.io/posts/vimvsemacs/</link>
+      <pubDate>Tue, 07 Nov 2023 22:27:40 +0530</pubDate>
+      
+      <guid>https://themagitian.github.io/posts/vimvsemacs/</guid>
+      <description>This is an overview of the two FOSS text editors - Vim (Neovim) and GNU Emacs.
+The battle between these editors, and as a result, between the fans of the two, has become pervasive in the free software community - it was preceded by the Vim/Emacs battle. Fans of either editor go to great lengths to establish the supremacy of their editor of choice. This article does not seek to provide a definitive answer about the better of the two - that&amp;rsquo;s the reader&amp;rsquo;s discretion.</description>
+      <content>&lt;p&gt;This is an overview of the two FOSS text editors  - &lt;strong&gt;Vim&lt;/strong&gt; (Neovim) and &lt;strong&gt;GNU Emacs&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://unkertmedia.com/wp-content/uploads/2022/04/vim-vs-emacs-1024x576.png&#34; alt=&#34;Editor war meme&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The battle between these editors, and as a result, between the fans of the two, has become pervasive in the &lt;em&gt;free software&lt;/em&gt; community - it was preceded by the Vim/Emacs battle.  Fans of either editor go to great lengths to establish the supremacy of their editor of choice. This article does not seek to provide &lt;em&gt;a definitive answer&lt;/em&gt; about the better of the two - that&amp;rsquo;s the reader&amp;rsquo;s discretion.&lt;/p&gt;
+&lt;p&gt;Both are &lt;em&gt;highly customizable&lt;/em&gt; editors, and can be transformed into &lt;em&gt;complete&lt;/em&gt; development environments. They are primarily used for editing source code, although they are just as good for writing novels and articles (such as this one :wink: ). The time one invests in these editors is almost proportional to the product, as these environments are often very &lt;strong&gt;sophisticated&lt;/strong&gt;; developers often use Neoim/Emacs instead of professional (which is almost synonymous with &lt;em&gt;proprietary&lt;/em&gt;, if it were not for these two, and VS Code) development environments.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;:  to make the comparisons fair, the features of Neovim, a fork of Vim that sees more community-led development, not present in Vim &lt;em&gt;may&lt;/em&gt; be included. These would be mentioned as features of Neovim, and not Vim, although they are different text editors.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;history&#34;&gt;History&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;vim&#34;&gt;Vim&lt;/h2&gt;
+&lt;p&gt;The history of Vim is rich, with its origins tracing back to the 1980s. Vim&amp;rsquo;s forerunner, Stevie (ST Editor for VI Enthusiasts), was created by Tim Thompson for the Atari ST in 1987.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Stevie_(text_editor)&#34;&gt;Stevie&lt;/a&gt; was one of the first popularized clones of Vi, and it did not use Vi&amp;rsquo;s source code. The source code for Vi used the Ed text editor developed under AT&amp;amp;T, and therefore Vi could only be used by those with an AT&amp;amp;T source license. This limitation led to the development of Vim, which was based on the source code for Stevie. This allowed the program to be distributed without requiring the AT&amp;amp;T source license &lt;a href=&#34;https://en.wikipedia.org/wiki/Vim_(text_editor)&#34;&gt;en.wikipedia.org&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Bram_Moolenaar&#34;&gt;Bram Moolenaar&lt;/a&gt;, the creator of Vim, began working on Vim for the Amiga computer in 1988, with the first public release (Vim v1.14) in 1991. At the time of its first release, the name &amp;ldquo;Vim&amp;rdquo; was an acronym for &amp;ldquo;Vi IMitation&amp;rdquo;, but this changed to &amp;ldquo;Vi iMproved&amp;rdquo; late in 1993.&lt;/p&gt;
+&lt;h2 id=&#34;neovim&#34;&gt;Neovim&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://neovim.io&#34;&gt;Neovim&lt;/a&gt;, often referred to as Nvim, is a highly extensible text editor that was initiated by Thiago de Arruda in 2011 as a fork of Vim. The creation of Neovim aimed to overcome Vim&amp;rsquo;s limitations, such as difficulty in extending and customizing the text editor. Neovim has evolved into a robust and adaptable text editor, inheriting many features from its predecessor, Vim, while adding enhancements and improving usability&lt;/p&gt;
+&lt;h2 id=&#34;gnu-emacs&#34;&gt;GNU Emacs&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Emacs&#34;&gt;EMACS&lt;/a&gt; was a family of text editors. Initially signifying &lt;strong&gt;E&lt;/strong&gt;ditor &lt;strong&gt;MAC&lt;/strong&gt;ro&lt;strong&gt;S&lt;/strong&gt;, the family was renowned for their extensibility. The &lt;a href=&#34;https://www.gnu.org/software/emacs/&#34;&gt;GNU Emacs&lt;/a&gt; text editor was created by &lt;a href=&#34;https://en.wikipedia.org/wiki/Richard_Stallman&#34;&gt;Richard Stallman&lt;/a&gt;, a famous computer scientist and &lt;em&gt;free software&lt;/em&gt; proponent, and the founder of the &lt;a href=&#34;https://gnu.org&#34;&gt;&lt;strong&gt;GNU&lt;/strong&gt; Project&lt;/a&gt;/ to be an open-source alternative to the &lt;strong&gt;proprietary&lt;/strong&gt; EMACS versions. Interestingly, it remains among the oldest FOSS projects under &lt;em&gt;active&lt;/em&gt; development.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;design&#34;&gt;Design&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;neovim-1&#34;&gt;Neovim&lt;/h2&gt;
+&lt;p&gt;Neovim, like Vim, is designed to be a terminal-based code editor -  fast and small, which is a key factor in its performance and efficiency. A terminal interface (either a terminal emulator, or the TTY on Linux) is required to run Neovim, although several GUI frontends exist. It&amp;rsquo;s built with a modular architecture, which makes it easier to add new features and improvements. This design also allows for a more powerful plugin architecture, with the ability to manage plugins more efficiently.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/wiki/akiyosi/goneovim/screenshots/goneovim.png&#34; alt=&#34;Goneovim, a GUI frontend&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Neovim&amp;rsquo;s key-based editing is a fundamental aspect of its design philosophy, which is centered around efficient text manipulation. Vim operates in different modes, including &amp;ldquo;normal mode&amp;rdquo; for navigating and manipulating text, and &amp;ldquo;insert mode&amp;rdquo; for inserting new text. To enter normal mode in Vim, you can press the Esc key on your keyboard, which will allow you to enter commands and navigate the text. There are multiple ways to enter insert mode in Vim, for example, you can press the &amp;lsquo;i&amp;rsquo; key while in normal mode. This will allow you to insert text at the current cursor position&lt;/p&gt;
+&lt;p&gt;One of the key differences between Vim and Neovim is in their extensibility. Vim&amp;rsquo;s core is more &lt;strong&gt;complicated&lt;/strong&gt; and &lt;strong&gt;interwoven&lt;/strong&gt;, making it challenging to add additional features. On the other hand, Neovim is very expandable and modular, which makes it easier to add new features and improvements).&lt;/p&gt;
+&lt;p&gt;Neovim also offers a more &lt;strong&gt;powerful plugin architecture&lt;/strong&gt;. The abundance of &lt;em&gt;plugin managers&lt;/em&gt; in Neovim makes managing plugins much simpler. Neovim&amp;rsquo;s remote plugin design enables the editor to increase its capabilities by making remote procedure calls. With this &lt;strong&gt;asynchronous plugins support&lt;/strong&gt;, any programming language, such as Lua, Python,etc.  may be used to make these calls asynchronously.&lt;/p&gt;
+&lt;h2 id=&#34;gnu-emacs-1&#34;&gt;GNU Emacs&lt;/h2&gt;
+&lt;p&gt;GNU Emacs, on the other hand, is a highly customizable &lt;strong&gt;GUI&lt;/strong&gt; text editor that was first implemented at the Artificial Intelligence Laboratory at MIT in 1976. In 1984, Richard Stallman, the main author of the original TECO Emacs, wrote the first GNU Emacs. This version of Emacs was written in the &lt;strong&gt;LISP programming language&lt;/strong&gt;, which provided more &lt;em&gt;extensibility&lt;/em&gt; than ever before and has been followed by most subsequent versions of Emacs.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/doomemacs/doomemacs/screenshots/main.png&#34; alt=&#34;Doom Emacs, an Emacs starter kit&#34;&gt;&lt;/p&gt;
+&lt;p&gt;GNU Emacs uses a system of keymaps to bind keys to commands. Keymaps are data structures that record the bindings between key sequences and command functions. The global keymap is always in effect and defines keys for Fundamental mode, which are common to most or all major modes. Each major or minor mode can have its own keymap which overrides the global definitions of some keys.&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;prefix key&lt;/strong&gt; is a key that is part of a key sequence which is used to initiate a command. For example, in the key sequence &lt;code&gt;C-x C-s&lt;/code&gt;, &lt;code&gt;C-x&lt;/code&gt; is the prefix key. Each prefix key has its own keymap, which holds the definition for the event that immediately follows that prefix &lt;a href=&#34;https://emacsdocs.org/docs/emacs/Prefix-Keymaps&#34;&gt;emacsdocs.org&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A &lt;strong&gt;modifier&lt;/strong&gt; in Emacs is a key that changes the meaning of the key that follows it. For example, in the key sequence &lt;code&gt;C-x&lt;/code&gt;, &lt;code&gt;C&lt;/code&gt; is a modifier key that changes the meaning of &lt;code&gt;x&lt;/code&gt;. Modifiers include &lt;code&gt;C&lt;/code&gt; for Control, &lt;code&gt;M&lt;/code&gt; for Meta (usually the Alt key on most keyboards), and &lt;code&gt;S&lt;/code&gt; for Shift &lt;a href=&#34;https://www.masteringemacs.org/article/mastering-key-bindings-emacs&#34;&gt;masteringemacs.org&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;C&lt;/code&gt; and &lt;code&gt;M&lt;/code&gt; are used to denote Control and Meta modifiers respectively. For example, in the keybinding &lt;code&gt;C-x&lt;/code&gt;, &lt;code&gt;C&lt;/code&gt; stands for Control and &lt;code&gt;x&lt;/code&gt; is the key that is being modified by the Control key. Similarly, in the keybinding &lt;code&gt;M-x&lt;/code&gt;, &lt;code&gt;M&lt;/code&gt; stands for Meta and &lt;code&gt;x&lt;/code&gt; is the key that is being modified by the Meta key &lt;a href=&#34;https://www.masteringemacs.org/article/mastering-key-bindings-emacs&#34;&gt;masteringemacs.org&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Emacs is known for its extensive &lt;strong&gt;customizability&lt;/strong&gt; and extensibility. It has a built-in &lt;strong&gt;help&lt;/strong&gt; library that includes documentation for every &lt;em&gt;command&lt;/em&gt;, &lt;em&gt;variable&lt;/em&gt;, and &lt;em&gt;internal function&lt;/em&gt;, making it a &lt;strong&gt;self-documenting&lt;/strong&gt; editor. It also has a built-in tutorial and can be extended with Lisp programs to adapt its behavior for different types of text.&lt;/p&gt;
+&lt;p&gt;The core functionality is handled apart from the UI (via &lt;em&gt;Emacs Lisp&lt;/em&gt;), meaning that Emacs can be &lt;strong&gt;embedded&lt;/strong&gt; into any other GUI system.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;features&#34;&gt;Features&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;neovim-2&#34;&gt;Neovim&lt;/h2&gt;
+&lt;p&gt;Neovim, a fork of Vim, has several unique features that set it apart from other text editors:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Built-in Language Server Protocol (LSP)&lt;/strong&gt;: Neovim comes with a built-in LSP, which allows it to provide features like autocompletion, go-to-definition, and error highlighting for many programming languages.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Tree-sitter&lt;/strong&gt;: Neovim includes native support for Tree-sitter, which allows it to parse code and provide syntax highlighting and indentation in a more accurate and efficient manner.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://user-images.githubusercontent.com/2361214/202753610-e923bf4e-e88f-494b-bb1e-d22a7688446f.png&#34; alt=&#34;Tree-sitter&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Asynchronous Plugin Support&lt;/strong&gt;: Neovim supports asynchronous plugins, which means that plugins can perform tasks without blocking the editor&amp;rsquo;s user interface. This feature makes Neovim more responsive and efficient.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;First-class Modal Editing&lt;/strong&gt;: Neovim supports modal editing, a feature inherited from Vim&amp;rsquo;s predecessor, Vi. This allows users to switch between different editing modes, such as command mode and insert mode, which can improve productivity and efficiency.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Modern Code Base&lt;/strong&gt;: Neovim is built with a modern code base that is easier to extend and customize than Vim&amp;rsquo;s.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fast Startup&lt;/strong&gt;: Neovim is known for its fast startup time. A new Neovim instance can start almost instantly, which is particularly useful when working with multiple files or projects.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Low Memory Usage&lt;/strong&gt;: Neovim is also light on memory usage. This allows you to have multiple Neovim instances open at the same time without consuming a lot of system resources.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;UI Agnostic&lt;/strong&gt;: Neovim is designed to be UI agnostic. This means that it can be embedded into any other GUI system, such as Atom, making it highly adaptable.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Terminal User Interface (TUI) Support&lt;/strong&gt;: Neovim can work in a terminal, on a remote server over SSH, or as a GUI application. This flexibility makes Neovim a versatile tool that can be used in various environments.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;gnu-emacs-2&#34;&gt;GNU Emacs&lt;/h2&gt;
+&lt;p&gt;GNU Emacs, on the other hand, has several unique features that set it apart from other text editors:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Extensibility with Emacs Lisp&lt;/strong&gt;: Emacs is highly extensible and customizable, thanks to its built-in scripting language, Emacs Lisp. This allows users to modify almost any aspect of Emacs&amp;rsquo; behavior and appearance.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Self-Documenting&lt;/strong&gt;: Emacs is designed to be self-documenting. Every variable or function has some documentation, and this documentation is searchable through the completion UI. This feature makes Emacs easier to learn and use.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Built-in Package Manager&lt;/strong&gt;: Emacs comes with a built-in package manager, which makes it easy to add new features and customizations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Variety of Modes&lt;/strong&gt;: Emacs has modes for nearly every use case, even ones like mail and internet browsing. It&amp;rsquo;s often been said that Emacs is essentially an operating system on its own.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Vim Emulation&lt;/strong&gt;: Emacs includes &lt;a href=&#34;https://github.com/emacs-evil/evil&#34;&gt;Evil mode&lt;/a&gt;, which provides Vim emulation. This allows Vim users to use Vim keybindings and behaviors within Emacs, making the transition to Emacs easier for Vim users.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Keyboard Macros&lt;/strong&gt;: Emacs allows you to record a sequence of key presses and then replay it as many times as one wants. This feature can be very useful for automating repetitive tasks.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Colors for Faces&lt;/strong&gt;: Emacs allows you to assign various foreground and background colors to &amp;ldquo;faces&amp;rdquo;. This can greatly enhance the readability and aesthetics of text.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://preview.redd.it/6en4usgcyxu21.png?width=640&amp;amp;crop=smart&amp;amp;auto=webp&amp;amp;s=b1fb36c2b240b160b3a9c54c773ab4304c1f3c07&#34; alt=&#34;Different font faces&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Org Mode&lt;/strong&gt;: Org-mode is a powerful tool for note-taking and documentation. It supports a variety of formats, including plain text, HTML, LaTeX, and more. It also includes features like hyperlinks, tables, and syntax highlighting.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Magit&lt;/strong&gt;: Magit is a Git interface for Emacs. It provides a visual representation of your Git repositories, making it easier to navigate and manage your Git projects.  It supports all the basic Git operations, such as committing changes, creating branches, and merging. It also supports more advanced features, like rebasing and cherry-picking.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;hr&gt;
+&lt;p&gt;In conclusion, both Neovim and GNU Emacs are &lt;strong&gt;highly customizable&lt;/strong&gt; and &lt;strong&gt;powerful&lt;/strong&gt; text editors that can be transformed into complete development environments. They are primarily used for editing source code, but they are also excellent tools for writing novels, articles, and more. The choice between the two often comes down to &lt;strong&gt;personal preference&lt;/strong&gt; and the &lt;em&gt;specific needs&lt;/em&gt; of the user.&lt;/p&gt;
+&lt;p&gt;Neovim, with its modular architecture and powerful plugin architecture, offers a &lt;strong&gt;fast, efficient&lt;/strong&gt;, and highly extensible environment. It supports modal editing, asynchronous plugins, and has a built-in Language Server Protocol, among other features.&lt;/p&gt;
+&lt;p&gt;On the other hand, GNU Emacs is known for its &lt;strong&gt;extensibility&lt;/strong&gt; with Emacs Lisp, self-documenting nature, and variety of modes. It offers features like keyboard macros, &lt;strong&gt;colors for faces&lt;/strong&gt;, and a built-in package manager. It also provides powerful tools like Org-mode for note-taking and documentation, and Magit for Git integration.&lt;/p&gt;
+&lt;p&gt;Both editors have their strengths and unique features that can greatly enhance a developer&amp;rsquo;s &lt;strong&gt;productivity&lt;/strong&gt;. It&amp;rsquo;s recommended for users to try out both editors and see which one fits their workflow better. As these are highly customizable editors, users can tweak and configure them to their liking, making them adaptable to their specific needs.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://psakalo.substack.com/p/my-take-on-neovim-vs-emacs-vs-vs&#34;&gt;psakalo.substack.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/emacs-evil/evil&#34;&gt;Evil mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://orgmode.org&#34;&gt;Org mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nvim-treesitter/nvim-treesitter/wiki/Gallery&#34;&gt;Treesitter in Neovim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;upload://k9TwXyuBWPbQ7qav9IVDspjAbpC.jpeg&#34;&gt;Fosstodon Doom Emacs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;upload://h4IG5KMhh5Tqjy21SURUKPdtXHV.png&#34;&gt;Banner image&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
