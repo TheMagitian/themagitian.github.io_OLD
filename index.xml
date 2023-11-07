@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>https://themagitian.github.io/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Nov 2023 22:18:18 +0530</lastBuildDate><atom:link href="https://themagitian.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Linux installation</title>
+      <link>https://themagitian.github.io/posts/archinstall/</link>
+      <pubDate>Tue, 07 Nov 2023 22:18:18 +0530</pubDate>
+      
+      <guid>https://themagitian.github.io/posts/archinstall/</guid>
+      <description>What is Arch Linux? Arch Linux is an independent GNU/Linux distribution that embraces the KISS philosophy - Keep It Simple, Stupid. It is a rolling-release Linux distro (short for distribution), meaning software receive updates almost as soon as developers release them.
+The kernel on Arch Linux is the latest among Linux distros. The biggest advantages of using Arch include:
+access to a vast source of user-contributed packages (AUR) access to the latest builds of most software fast update times, no need to wait for distro upgrades to complete fully Let&amp;rsquo;s install Arch Linux on our computers!</description>
+      <content>&lt;h2 id=&#34;what-is-arch-linux&#34;&gt;What is Arch Linux?&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/archlinux-banner.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Arch Linux&lt;/em&gt; is an independent &lt;strong&gt;GNU/Linux&lt;/strong&gt; distribution that embraces the &lt;em&gt;KISS&lt;/em&gt; philosophy - Keep It Simple, Stupid. It is a &lt;strong&gt;rolling-release&lt;/strong&gt; Linux distro (short for &lt;em&gt;distribution&lt;/em&gt;), meaning software receive updates almost as soon as developers release them.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;kernel&lt;/strong&gt; on Arch Linux is the latest among Linux distros. The biggest advantages of using Arch include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;access to a vast source of user-contributed packages (AUR)&lt;/li&gt;
+&lt;li&gt;access to the latest builds of most software&lt;/li&gt;
+&lt;li&gt;fast update times, no need to wait for distro upgrades to complete fully&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let&amp;rsquo;s install Arch Linux on our computers!&lt;/p&gt;
+&lt;h2 id=&#34;preparation-of-installation-medium&#34;&gt;Preparation of installation medium&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Find a spare USB drive (capable of storing 8 or more GB data). Ensure that it doesn&amp;rsquo;t contain any valuable data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the ISO file for Arch Linux from &lt;a href=&#34;https://in-mirror.garudalinux.org/archlinux/iso/2023.07.01/archlinux-x86_64.iso&#34;&gt;this URL&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download and install the Balena Etcher tool, used to flash OS images onto the USB drive.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click on &lt;code&gt;Select image&lt;/code&gt;, choose the ISO file downloaded recently, then click on &lt;code&gt;Select drive&lt;/code&gt;. Choose the USB device you want to flash to.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Select &lt;code&gt;Flash!&lt;/code&gt;. This &lt;strong&gt;formats&lt;/strong&gt; your USB device, removing all existing data. 2 partitions are created in the USB drive, of which &lt;em&gt;one&lt;/em&gt; contains the ISO file.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Balena Etcher makes this device bootable. This means you can boot directly from this device, making use of RAM to store &lt;strong&gt;temporary&lt;/strong&gt; files in the &lt;em&gt;live environment&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Congratulations! You&amp;rsquo;ve created a working Linux &amp;ldquo;disk&amp;rdquo; that can be used to install Linux on &lt;em&gt;various&lt;/em&gt; computers!&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Power off the computer once the ISO image has been flashed to the USB drive.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Plug the USB drive into a port provided on the side of the computer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;While booting, press either of the following keys:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Esc&lt;/code&gt;, &lt;code&gt;F1&lt;/code&gt;, &lt;code&gt;F2&lt;/code&gt;, &lt;code&gt;F8&lt;/code&gt;, &lt;code&gt;F9&lt;/code&gt;, &lt;code&gt;F10&lt;/code&gt;, &lt;code&gt;F12&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;p&gt;The exact key varies across devices, so trial-and-error is needed to boot into the &lt;strong&gt;UEFI/BIOS&lt;/strong&gt; menu.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the interface, &lt;strong&gt;disable &lt;code&gt;Secure Boot&lt;/code&gt;&lt;/strong&gt;. Finding this option takes some time, and varies across devices.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Power off the device after disabling Secure Boot.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Boot the device back on, while pressing the same key used previously to access the BIOS/UEFI menu. Select the device from the &lt;strong&gt;boot devices&lt;/strong&gt; dropdown menu. The entry usually contains something like &amp;ldquo;SanDisk&amp;rdquo;, the name of the manufacturer, etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After the selection, messages about services would appear on the screen. A &amp;ldquo;Welcome to Arch Linux!&amp;rdquo; message indicates that the device contains a valid image; after some time, a prompt saying &lt;code&gt;root@archiso&lt;/code&gt; should appear.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/image-2.png&#34; alt=&#34;Ignore the kernel version here&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Connecting to Internet (Wi-fi)&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Use the &lt;code&gt;iwctl&lt;/code&gt; tool provided by the &lt;em&gt;iNet Wireless Daemon&lt;/em&gt; (IWD) package:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;iwctl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The prompt should now change to &lt;code&gt;[iwd]#&lt;/code&gt;. To list out the devices, type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;device list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Typically, it&amp;rsquo;s &lt;code&gt;wlan0&lt;/code&gt; (wireless LAN 0). Scan for networks managed by the interface &lt;em&gt;wlan0&lt;/em&gt; with:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;station wlan0 scan &lt;span style=&#34;color:#75715e&#34;&gt;# to initialize a scan for networks&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;station wlan0 get-networks &lt;span style=&#34;color:#75715e&#34;&gt;# to display available networks&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Connect to the network named &lt;em&gt;NAME&lt;/em&gt; with:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;station wlan0 connect NAME
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/1.jpg&#34; alt=&#34;Connecting to a network named NAME&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;iwctl&lt;/code&gt; should ask for the network password. Once provided correctly, Internet connection is established.&lt;/p&gt;
+&lt;p&gt;Press &lt;code&gt;Ctrl-d&lt;/code&gt; to exit IWD.&lt;/p&gt;
+&lt;p&gt;To test network connectivity, type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ping google.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If network requests are sent and received, network connection has been established successfully.&lt;/p&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;To synchronise the system clock with an NTP server, type:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;timedatectl set-ntp true
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Partitioning&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This device has only a 1 Tb (actually, 931.5 Gb) hard-drive disk (&lt;em&gt;HDD&lt;/em&gt;). The &lt;em&gt;bootloader&lt;/em&gt;, &lt;em&gt;home&lt;/em&gt; and &lt;em&gt;root&lt;/em&gt; partitions lie on the same disk.&lt;/p&gt;
+&lt;p&gt;Partitioning layouts will vary across devices, and based on the use case too. If your computer has an &lt;em&gt;SSD&lt;/em&gt;, allocate free space (from within Windows&amp;rsquo; Disk Management, for example) in both the SSD and the HDD.&lt;/p&gt;
+&lt;p&gt;If you want Linux and Windows to boot up quickly (in case you dual-boot Linux and Windows), make space (512 Mb) in the SSD for the Linux bootloader, and space in the HDD for the main root partition storage (&lt;a href=&#34;https://itsfoss.com/dual-boot-hdd-ssd/&#34;&gt;refer URL&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BE VERY CAREFUL WHILE PARTITIONING. MISTAKES CAN&amp;rsquo;T BE UNDONE.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In this device, I&amp;rsquo;ve dedicated the entire HDD to Arch Linux (not dual-booting).&lt;/p&gt;
+&lt;p&gt;So,&lt;/p&gt;
+&lt;p&gt;931.5 Gb $\rightarrow $ 931 Gb (ROOT) + 0.5 Gb (512 Mb, BOOT).&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/dev/sda&lt;/code&gt; is the entire hard drive. If you have an SSD, it &lt;strong&gt;might&lt;/strong&gt; be &lt;code&gt;/dev/sda&lt;/code&gt; or &lt;code&gt;/dev/sdb&lt;/code&gt;, and the hard drive will be the other device. Identify based on storage size.&lt;/p&gt;
+&lt;p&gt;Use the command &lt;code&gt;lsblk&lt;/code&gt; to verify all storage devices. Use &lt;code&gt;cfdisk DEVICE&lt;/code&gt; to check the partitions per device.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/3.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You can observe that &lt;code&gt;sda1&lt;/code&gt; is the &lt;em&gt;EFI bootloader partition&lt;/em&gt;, and &lt;code&gt;sda2&lt;/code&gt; is the root partition, based on their sizes. Ignore the device listed at the end (in this case, &lt;code&gt;sdb&lt;/code&gt;), as it&amp;rsquo;s usually the details of the USB drive.&lt;/p&gt;
+&lt;p&gt;To make partitions,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo cfdisk /dev/sda &lt;span style=&#34;color:#75715e&#34;&gt;# for partitioning hard drive in my case&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Navigate to the &lt;code&gt;Free space&lt;/code&gt; entry using arrow keys. In the free space allocated previously, choose &lt;code&gt;New&lt;/code&gt; (press Enter) to create a partition. Press &lt;code&gt;Enter&lt;/code&gt;, leaving the default &amp;ldquo;Partition size&amp;rdquo; mentioned. Press the &lt;code&gt;Right arrow&lt;/code&gt; key to navigate to &lt;em&gt;[Type]&lt;/em&gt;, and choose &lt;em&gt;Linux filesystem&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Based on where you allocated space for the boot partition on Windows (on &lt;code&gt;/dev/sda&lt;/code&gt; or on &lt;code&gt;/dev/sdb&lt;/code&gt;), repeat the process to create an &lt;code&gt;UEFI/BIOS&lt;/code&gt; partition. Choose &lt;em&gt;EFI System&lt;/em&gt; to create one for a UEFI system, and &lt;em&gt;BIOS boot&lt;/em&gt; to create a BIOS boot partition.&lt;/p&gt;
+&lt;p&gt;In this case, the root and &lt;em&gt;EFI&lt;/em&gt; boot partitions have  been created on the same &lt;code&gt;/dev/sda&lt;/code&gt; device.
+&lt;img src=&#34;https://themagitian.github.io/2.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;11&#34;&gt;
+&lt;li&gt;Formatting the created partitions&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You&amp;rsquo;ve created root and boot partitions. They must be formatted with appropriate filesystems for them to serve their purpose.&lt;/p&gt;
+&lt;p&gt;To format them correctly:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkfs.fat -F32 /dev/sda1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replace &lt;code&gt;sda1&lt;/code&gt; with the correct boot partition/device.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkfs.ext4 /dev/sda2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Again, replace &lt;code&gt;sda2&lt;/code&gt; with the correct root partition/device.&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;12&#34;&gt;
+&lt;li&gt;Mounting the freshly minted filesystems&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir -p /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To mount the file systems in a directory &lt;code&gt;mnt&lt;/code&gt; in &lt;code&gt;/&lt;/code&gt;.
+It&amp;rsquo;s to be created, as it doesn&amp;rsquo;t exist.&lt;/p&gt;
+&lt;p&gt;This directory, short for &lt;em&gt;mount&lt;/em&gt;, is a &amp;ldquo;mountpoint&amp;rdquo; for external storage devices on Linux systems.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mount /dev/sda2 /mnt &lt;span style=&#34;color:#75715e&#34;&gt;# mounting root partition (/)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mount /dev/sda1 /mnt/boot &lt;span style=&#34;color:#75715e&#34;&gt;# mounting boot partition (/boot)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As above, replace &lt;code&gt;sda1&lt;/code&gt; and &lt;code&gt;sda2&lt;/code&gt; with the correct filesystems on your computer.&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;13&#34;&gt;
+&lt;li&gt;To create a new &lt;em&gt;minimal&lt;/em&gt; system from scratch, with the &lt;strong&gt;linux&lt;/strong&gt; kernel,&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pacstrap /mnt base linux linux-firmware
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This step takes some time, as it installs the kernel, essential packages and firmware. Press &lt;code&gt;Enter&lt;/code&gt; when asked to enter numbers. Feel free to walk away for a cup of coffee after this ;)&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;14&#34;&gt;
+&lt;li&gt;Generating the filesystem table&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This creates a file system table, and records the output in &lt;code&gt;/etc/fstab&lt;/code&gt; on the installed OS. This file lets the OS know which device to mount automatically during boot.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/4.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;15&#34;&gt;
+&lt;li&gt;Post-installation steps&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Congrats!! You&amp;rsquo;ve installed &lt;em&gt;Arch Linux&lt;/em&gt; on your computer!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To access the installed system, from the live USB medium, without booting the OS,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;arch-chroot /mnt &lt;span style=&#34;color:#75715e&#34;&gt;# changing root directory&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you can access now is the installed OS&amp;rsquo; shell. Commands run directly on the OS. The prompt should change to &lt;code&gt;[root@archiso /]# &lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To set timezone info&lt;/strong&gt;,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ln -sf /usr/share/zoneinfo/REGION/CITY /etc/localtime 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you live in India, type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime &lt;span style=&#34;color:#75715e&#34;&gt;# irrespective of Indian city&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you&amp;rsquo;re unsure about the choice of cities available, list the contents of the &lt;code&gt;/usr/share/zoneinfo/&lt;/code&gt; and &lt;code&gt;/usr/share/zoneinfo/&amp;lt;REGION&amp;gt;&lt;/code&gt; directories:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls /usr/share/zoneinfo
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# note the region, such as Asia, America, etc.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ls /usr/share/zoneinfo/&amp;lt;REGION&amp;gt;/ &lt;span style=&#34;color:#75715e&#34;&gt;# REGION is from above.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# note the city&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/5.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To synchronise the hardware and software clocks&lt;/strong&gt;,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hwclock --systohc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You probably do not have any text editor installed. Install a text-based one, called Nano, using the package manager, &lt;em&gt;Pacman&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pacman -S nano
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Type &lt;code&gt;Y&lt;/code&gt; or &lt;code&gt;Enter&lt;/code&gt; to confirm the installation.&lt;/p&gt;
+&lt;p&gt;You can now use this editor to edit files in the following steps.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To configure locale settings&lt;/strong&gt;,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nano /etc/locale.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Uncomment the first line starting with &lt;em&gt;en_US.UTF8&lt;/em&gt; (remove the pound sign at the start of the line), to set your locale to &amp;ldquo;US English&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/6.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Press &lt;code&gt;Ctrl-S&lt;/code&gt; to save, &lt;code&gt;Ctrl-x&lt;/code&gt; to exit Nano.&lt;/p&gt;
+&lt;p&gt;Type this to generate the new locale:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;locale-gen
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;To map IP addresses to domains&lt;/strong&gt;, edit the &lt;code&gt;/etc/hosts&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;Set a hostname with:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hostnamectl set-hostname NAME
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replace NAME with a unique hostname for the device.&lt;/p&gt;
+&lt;p&gt;Update to the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;127.0.0.1   localhost
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;::1         localhost
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;127.0.1.1   NAME.localdomain    NAME
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replace NAME with the hostname set earlier using &lt;code&gt;hostnamectl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/7.jpg&#34; alt=&#34;&#34;&gt;
+In this case, &lt;code&gt;Arch&lt;/code&gt; is my device&amp;rsquo;s hostname.&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;16&#34;&gt;
+&lt;li&gt;User creation&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Firstly, install the &lt;em&gt;sudo&lt;/em&gt; program to give a normal user the ability to run commands as the &lt;em&gt;root&lt;/em&gt; user.
+Type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pacman -S sudo &lt;span style=&#34;color:#75715e&#34;&gt;# press Enter when asked for confirmation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;IMPORTANT&lt;/strong&gt;: Add a password for the root user,&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Enter a strong and complicated password. Forgetting this password would be &lt;strong&gt;catastrophic&lt;/strong&gt;. The password &lt;em&gt;would not be visible&lt;/em&gt; when typing on the screen (as a safety measure).&lt;/p&gt;
+&lt;p&gt;It is recommended to create an &lt;strong&gt;privileged&lt;/strong&gt; user, rather than perform all tasks as &lt;em&gt;root&lt;/em&gt; (&lt;strong&gt;UNSAFE!&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;To add a user, say &lt;code&gt;USER&lt;/code&gt;, type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;useradd USER &lt;span style=&#34;color:#75715e&#34;&gt;# replace USER with something else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd USER &lt;span style=&#34;color:#75715e&#34;&gt;# to set admin password for USER&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;By default, the user would not be allowed to run commands as root using &lt;em&gt;sudo&lt;/em&gt;. For this to happen, edit the &lt;code&gt;/etc/sudoers&lt;/code&gt; file using Nano:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nano /etc/sudoers
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Uncomment the line saying:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;%wheel ALL=(ALL:ALL) ALL
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/8.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You must now add your user to the &lt;em&gt;wheel&lt;/em&gt; users group.
+Type:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo usermod -aG wheel USER
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replace &lt;em&gt;USER&lt;/em&gt; with the user you just created.&lt;/p&gt;
+&lt;p&gt;Now you have a regular user who can execute commands as &lt;em&gt;root&lt;/em&gt; using &lt;code&gt;sudo&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;ol start=&#34;17&#34;&gt;
+&lt;li&gt;Installing the bootloader, wireless network tools&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Install packages using &lt;em&gt;Pacman&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pacman -S efibootmgr network-manager-applet wireless_tools wpa_supplicant dialog os-prober mtools dosfstools base-devel linux-headers
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once the installation finishes, you can proceed to install the bootloader.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bootctl --path&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/boot install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Finally, add these lines to &lt;code&gt;/boot/loader/loader.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Edit using&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nano /boot/loader/loader.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;timeout 3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;default arch-*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and to &lt;code&gt;/boot/loader/entries/arch.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo nano /boot/loader/entries/arch.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;title   Arch Linux
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;linux   /vmlinuz-linux
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;initrd  /initramfs-linux.img
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;options root=/dev/sda2 rw
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Replace &lt;code&gt;sda2&lt;/code&gt; with the root partition device installed to.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://themagitian.github.io/10.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Ensure that the networking service autostarts, using &lt;code&gt;systemctl&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl enable NetworkManager
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Basic installation is over!!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can now &lt;em&gt;unmount&lt;/em&gt; the installation media and shut down the computer:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;umount -l /mnt
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;shutdown now
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can use &lt;em&gt;Arch Linux&lt;/em&gt; from the next time you boot up the computer!!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;PS: If you haven&amp;rsquo;t figured it out until now, &lt;a href=&#34;https://knowyourmeme.com/memes/btw-i-use-arch&#34;&gt;I use Arch, BTW!&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
