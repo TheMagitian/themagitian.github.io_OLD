@@ -97,7 +97,7 @@
   <h1 class="post-title">
     <a href="https://themagitian.github.io/posts/archinstall/">Arch Linux installation</a>
   </h1>
-  <div class="post-meta"><time class="post-date">2023-11-07</time></div>
+  <div class="post-meta"><time class="post-date">2023-11-07</time><span class="post-author">Srinath Anand</span></div>
 
   
     <span class="post-tags">
@@ -115,7 +115,7 @@
 
   <div class="post-content"><div>
         <h2 id="what-is-arch-linux">What is Arch Linux?<a href="#what-is-arch-linux" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p><img src="/archlinux-banner.png" alt=""></p>
+<p><img src="/ArchInstall/archlinux-banner.png" alt=""></p>
 <p><em>Arch Linux</em> is an independent <strong>GNU/Linux</strong> distribution that embraces the <em>KISS</em> philosophy - Keep It Simple, Stupid. It is a <strong>rolling-release</strong> Linux distro (short for <em>distribution</em>), meaning software receive updates almost as soon as developers release them.</p>
 <p>The <strong>kernel</strong> on Arch Linux is the latest among Linux distros. The biggest advantages of using Arch include:</p>
 <ul>
@@ -170,29 +170,29 @@
 <p>After the selection, messages about services would appear on the screen. A &ldquo;Welcome to Arch Linux!&rdquo; message indicates that the device contains a valid image; after some time, a prompt saying <code>root@archiso</code> should appear.</p>
 </li>
 </ol>
-<p><img src="/image-2.png" alt="Ignore the kernel version here"></p>
+<p><img src="/ArchInstall/image-2.png" alt="Ignore the kernel version here"></p>
 <ol start="8">
 <li><strong>Connecting to Internet (Wi-fi)</strong>:</li>
 </ol>
 <p>Use the <code>iwctl</code> tool provided by the <em>iNet Wireless Daemon</em> (IWD) package:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iwctl
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">iwctl
 </span></span></code></pre></div><p>The prompt should now change to <code>[iwd]#</code>. To list out the devices, type:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>device list
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">device list
 </span></span></code></pre></div><p>Typically, it&rsquo;s <code>wlan0</code> (wireless LAN 0). Scan for networks managed by the interface <em>wlan0</em> with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>station wlan0 scan <span style="color:#75715e"># to initialize a scan for networks</span>
-</span></span><span style="display:flex;"><span>station wlan0 get-networks <span style="color:#75715e"># to display available networks</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">station wlan0 scan <span class="c1"># to initialize a scan for networks</span>
+</span></span><span class="line"><span class="cl">station wlan0 get-networks <span class="c1"># to display available networks</span>
 </span></span></code></pre></div><p>Connect to the network named <em>NAME</em> with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>station wlan0 connect NAME
-</span></span></code></pre></div><p><img src="/1.jpg" alt="Connecting to a network named NAME"></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">station wlan0 connect NAME
+</span></span></code></pre></div><p><img src="/ArchInstall/1.jpg" alt="Connecting to a network named NAME"></p>
 <p><code>iwctl</code> should ask for the network password. Once provided correctly, Internet connection is established.</p>
 <p>Press <code>Ctrl-d</code> to exit IWD.</p>
 <p>To test network connectivity, type:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ping google.com
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ping google.com
 </span></span></code></pre></div><p>If network requests are sent and received, network connection has been established successfully.</p>
 <ol start="9">
 <li>To synchronise the system clock with an NTP server, type:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>timedatectl set-ntp true
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">timedatectl set-ntp <span class="nb">true</span>
 </span></span></code></pre></div><hr>
 <ol start="10">
 <li><strong>Partitioning</strong></li>
@@ -206,89 +206,89 @@
 <p>931.5 Gb $\rightarrow $ 931 Gb (ROOT) + 0.5 Gb (512 Mb, BOOT).</p>
 <p><code>/dev/sda</code> is the entire hard drive. If you have an SSD, it <strong>might</strong> be <code>/dev/sda</code> or <code>/dev/sdb</code>, and the hard drive will be the other device. Identify based on storage size.</p>
 <p>Use the command <code>lsblk</code> to verify all storage devices. Use <code>cfdisk DEVICE</code> to check the partitions per device.</p>
-<p><img src="/3.jpg" alt=""></p>
+<p><img src="/ArchInstall/3.jpg" alt=""></p>
 <p>You can observe that <code>sda1</code> is the <em>EFI bootloader partition</em>, and <code>sda2</code> is the root partition, based on their sizes. Ignore the device listed at the end (in this case, <code>sdb</code>), as it&rsquo;s usually the details of the USB drive.</p>
 <p>To make partitions,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cfdisk /dev/sda <span style="color:#75715e"># for partitioning hard drive in my case</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo cfdisk /dev/sda <span class="c1"># for partitioning hard drive in my case</span>
 </span></span></code></pre></div><p>Navigate to the <code>Free space</code> entry using arrow keys. In the free space allocated previously, choose <code>New</code> (press Enter) to create a partition. Press <code>Enter</code>, leaving the default &ldquo;Partition size&rdquo; mentioned. Press the <code>Right arrow</code> key to navigate to <em>[Type]</em>, and choose <em>Linux filesystem</em>.</p>
 <p>Based on where you allocated space for the boot partition on Windows (on <code>/dev/sda</code> or on <code>/dev/sdb</code>), repeat the process to create an <code>UEFI/BIOS</code> partition. Choose <em>EFI System</em> to create one for a UEFI system, and <em>BIOS boot</em> to create a BIOS boot partition.</p>
 <p>In this case, the root and <em>EFI</em> boot partitions have  been created on the same <code>/dev/sda</code> device.
-<img src="/2.jpg" alt=""></p>
+<img src="/ArchInstall/2.jpg" alt=""></p>
 <hr>
 <ol start="11">
 <li>Formatting the created partitions</li>
 </ol>
 <p>You&rsquo;ve created root and boot partitions. They must be formatted with appropriate filesystems for them to serve their purpose.</p>
 <p>To format them correctly:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkfs.fat -F32 /dev/sda1
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkfs.fat -F32 /dev/sda1
 </span></span></code></pre></div><p>Replace <code>sda1</code> with the correct boot partition/device.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkfs.ext4 /dev/sda2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkfs.ext4 /dev/sda2
 </span></span></code></pre></div><p>Again, replace <code>sda2</code> with the correct root partition/device.</p>
 <hr>
 <ol start="12">
 <li>Mounting the freshly minted filesystems</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p /mnt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p /mnt
 </span></span></code></pre></div><p>To mount the file systems in a directory <code>mnt</code> in <code>/</code>.
 It&rsquo;s to be created, as it doesn&rsquo;t exist.</p>
 <p>This directory, short for <em>mount</em>, is a &ldquo;mountpoint&rdquo; for external storage devices on Linux systems.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount /dev/sda2 /mnt <span style="color:#75715e"># mounting root partition (/)</span>
-</span></span><span style="display:flex;"><span>mount /dev/sda1 /mnt/boot <span style="color:#75715e"># mounting boot partition (/boot)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mount /dev/sda2 /mnt <span class="c1"># mounting root partition (/)</span>
+</span></span><span class="line"><span class="cl">mount /dev/sda1 /mnt/boot <span class="c1"># mounting boot partition (/boot)</span>
 </span></span></code></pre></div><p>As above, replace <code>sda1</code> and <code>sda2</code> with the correct filesystems on your computer.</p>
 <hr>
 <ol start="13">
 <li>To create a new <em>minimal</em> system from scratch, with the <strong>linux</strong> kernel,</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacstrap /mnt base linux linux-firmware
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacstrap /mnt base linux linux-firmware
 </span></span></code></pre></div><p>This step takes some time, as it installs the kernel, essential packages and firmware. Press <code>Enter</code> when asked to enter numbers. Feel free to walk away for a cup of coffee after this ;)</p>
 <hr>
 <ol start="14">
 <li>Generating the filesystem table</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
 </span></span></code></pre></div><p>This creates a file system table, and records the output in <code>/etc/fstab</code> on the installed OS. This file lets the OS know which device to mount automatically during boot.</p>
-<p><img src="/4.jpg" alt=""></p>
+<p><img src="/ArchInstall/4.jpg" alt=""></p>
 <hr>
 <ol start="15">
 <li>Post-installation steps</li>
 </ol>
 <p><strong>Congrats!! You&rsquo;ve installed <em>Arch Linux</em> on your computer!</strong></p>
 <p>To access the installed system, from the live USB medium, without booting the OS,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>arch-chroot /mnt <span style="color:#75715e"># changing root directory</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">arch-chroot /mnt <span class="c1"># changing root directory</span>
 </span></span></code></pre></div><p>What you can access now is the installed OS&rsquo; shell. Commands run directly on the OS. The prompt should change to <code>[root@archiso /]# </code>.</p>
 <p><strong>To set timezone info</strong>,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ln -sf /usr/share/zoneinfo/REGION/CITY /etc/localtime 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -sf /usr/share/zoneinfo/REGION/CITY /etc/localtime 
 </span></span></code></pre></div><p>If you live in India, type:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime <span style="color:#75715e"># irrespective of Indian city</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime <span class="c1"># irrespective of Indian city</span>
 </span></span></code></pre></div><p>If you&rsquo;re unsure about the choice of cities available, list the contents of the <code>/usr/share/zoneinfo/</code> and <code>/usr/share/zoneinfo/&lt;REGION&gt;</code> directories:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls /usr/share/zoneinfo
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># note the region, such as Asia, America, etc.</span>
-</span></span><span style="display:flex;"><span>ls /usr/share/zoneinfo/&lt;REGION&gt;/ <span style="color:#75715e"># REGION is from above.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># note the city</span>
-</span></span></code></pre></div><p><img src="/5.jpg" alt=""></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls /usr/share/zoneinfo
+</span></span><span class="line"><span class="cl"><span class="c1"># note the region, such as Asia, America, etc.</span>
+</span></span><span class="line"><span class="cl">ls /usr/share/zoneinfo/&lt;REGION&gt;/ <span class="c1"># REGION is from above.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># note the city</span>
+</span></span></code></pre></div><p><img src="/ArchInstall/5.jpg" alt=""></p>
 <p><strong>To synchronise the hardware and software clocks</strong>,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hwclock --systohc
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hwclock --systohc
 </span></span></code></pre></div><p>You probably do not have any text editor installed. Install a text-based one, called Nano, using the package manager, <em>Pacman</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S nano
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S nano
 </span></span></code></pre></div><p>Type <code>Y</code> or <code>Enter</code> to confirm the installation.</p>
 <p>You can now use this editor to edit files in the following steps.</p>
 <p><strong>To configure locale settings</strong>,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano /etc/locale.conf
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano /etc/locale.conf
 </span></span></code></pre></div><p>Uncomment the first line starting with <em>en_US.UTF8</em> (remove the pound sign at the start of the line), to set your locale to &ldquo;US English&rdquo;.</p>
-<p><img src="/6.jpg" alt=""></p>
+<p><img src="/ArchInstall/6.jpg" alt=""></p>
 <p>Press <code>Ctrl-S</code> to save, <code>Ctrl-x</code> to exit Nano.</p>
 <p>Type this to generate the new locale:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>locale-gen
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">locale-gen
 </span></span></code></pre></div><p><strong>To map IP addresses to domains</strong>, edit the <code>/etc/hosts</code> file.</p>
 <p>Set a hostname with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hostnamectl set-hostname NAME
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hostnamectl set-hostname NAME
 </span></span></code></pre></div><p>Replace NAME with a unique hostname for the device.</p>
 <p>Update to the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>127.0.0.1   localhost
-</span></span><span style="display:flex;"><span>::1         localhost
-</span></span><span style="display:flex;"><span>127.0.1.1   NAME.localdomain    NAME
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">127.0.0.1   localhost
+</span></span><span class="line"><span class="cl">::1         localhost
+</span></span><span class="line"><span class="cl">127.0.1.1   NAME.localdomain    NAME
 </span></span></code></pre></div><p>Replace NAME with the hostname set earlier using <code>hostnamectl</code>.</p>
-<p><img src="/7.jpg" alt="">
+<p><img src="/ArchInstall/7.jpg" alt="">
 In this case, <code>Arch</code> is my device&rsquo;s hostname.</p>
 <hr>
 <ol start="16">
@@ -296,22 +296,22 @@ In this case, <code>Arch</code> is my device&rsquo;s hostname.</p>
 </ol>
 <p>Firstly, install the <em>sudo</em> program to give a normal user the ability to run commands as the <em>root</em> user.
 Type:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S sudo <span style="color:#75715e"># press Enter when asked for confirmation</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S sudo <span class="c1"># press Enter when asked for confirmation</span>
 </span></span></code></pre></div><p><strong>IMPORTANT</strong>: Add a password for the root user,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>passwd
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">passwd
 </span></span></code></pre></div><p>Enter a strong and complicated password. Forgetting this password would be <strong>catastrophic</strong>. The password <em>would not be visible</em> when typing on the screen (as a safety measure).</p>
 <p>It is recommended to create an <strong>privileged</strong> user, rather than perform all tasks as <em>root</em> (<strong>UNSAFE!</strong>).</p>
 <p>To add a user, say <code>USER</code>, type:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>useradd USER <span style="color:#75715e"># replace USER with something else</span>
-</span></span><span style="display:flex;"><span>passwd USER <span style="color:#75715e"># to set admin password for USER</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">useradd USER <span class="c1"># replace USER with something else</span>
+</span></span><span class="line"><span class="cl">passwd USER <span class="c1"># to set admin password for USER</span>
 </span></span></code></pre></div><p>By default, the user would not be allowed to run commands as root using <em>sudo</em>. For this to happen, edit the <code>/etc/sudoers</code> file using Nano:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano /etc/sudoers
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nano /etc/sudoers
 </span></span></code></pre></div><p>Uncomment the line saying:</p>
 <pre tabindex="0"><code class="language-conf" data-lang="conf">%wheel ALL=(ALL:ALL) ALL
-</code></pre><p><img src="/8.jpg" alt=""></p>
+</code></pre><p><img src="/ArchInstall/8.jpg" alt=""></p>
 <p>You must now add your user to the <em>wheel</em> users group.
 Type:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo usermod -aG wheel USER
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo usermod -aG wheel USER
 </span></span></code></pre></div><p>Replace <em>USER</em> with the user you just created.</p>
 <p>Now you have a regular user who can execute commands as <em>root</em> using <code>sudo</code>.</p>
 <hr>
@@ -319,28 +319,28 @@ Type:</p>
 <li>Installing the bootloader, wireless network tools</li>
 </ol>
 <p>Install packages using <em>Pacman</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S efibootmgr network-manager-applet wireless_tools wpa_supplicant dialog os-prober mtools dosfstools base-devel linux-headers
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -S efibootmgr network-manager-applet wireless_tools wpa_supplicant dialog os-prober mtools dosfstools base-devel linux-headers
 </span></span></code></pre></div><p>Once the installation finishes, you can proceed to install the bootloader.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bootctl --path<span style="color:#f92672">=</span>/boot install
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bootctl --path<span class="o">=</span>/boot install
 </span></span></code></pre></div><p>Finally, add these lines to <code>/boot/loader/loader.conf</code>:</p>
 <p>Edit using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /boot/loader/loader.conf
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>timeout 3
-</span></span><span style="display:flex;"><span>default arch-*
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /boot/loader/loader.conf
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">timeout 3
+</span></span><span class="line"><span class="cl">default arch-*
 </span></span></code></pre></div><p>and to <code>/boot/loader/entries/arch.conf</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo nano /boot/loader/entries/arch.conf
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>title   Arch Linux
-</span></span><span style="display:flex;"><span>linux   /vmlinuz-linux
-</span></span><span style="display:flex;"><span>initrd  /initramfs-linux.img
-</span></span><span style="display:flex;"><span>options root=/dev/sda2 rw
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo nano /boot/loader/entries/arch.conf
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">title   Arch Linux
+</span></span><span class="line"><span class="cl">linux   /vmlinuz-linux
+</span></span><span class="line"><span class="cl">initrd  /initramfs-linux.img
+</span></span><span class="line"><span class="cl">options root=/dev/sda2 rw
 </span></span></code></pre></div><p>Replace <code>sda2</code> with the root partition device installed to.</p>
-<p><img src="/10.jpg" alt=""></p>
+<p><img src="/ArchInstall/10.jpg" alt=""></p>
 <p>Ensure that the networking service autostarts, using <code>systemctl</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable NetworkManager
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl <span class="nb">enable</span> NetworkManager
 </span></span></code></pre></div><p><strong>Basic installation is over!!</strong></p>
 <p>You can now <em>unmount</em> the installation media and shut down the computer:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>umount -l /mnt
-</span></span><span style="display:flex;"><span>shutdown now
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">umount -l /mnt
+</span></span><span class="line"><span class="cl">shutdown now
 </span></span></code></pre></div><p>You can use <em>Arch Linux</em> from the next time you boot up the computer!!</p>
 <hr>
 <p>PS: If you haven&rsquo;t figured it out until now, <a href="https://knowyourmeme.com/memes/btw-i-use-arch">I use Arch, BTW!</a></p>
