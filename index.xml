@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 12 Nov 2023 14:10:03 +0530</lastBuildDate><atom:link href="https://themagitian.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configuring Emacs</title>
-      <link>https://themagitian.github.io/posts/emacs-config/</link>
+      <link>https://themagitian.github.io/posts/emacsconfig/</link>
       <pubDate>Sun, 12 Nov 2023 14:10:03 +0530</pubDate>
       
-      <guid>https://themagitian.github.io/posts/emacs-config/</guid>
+      <guid>https://themagitian.github.io/posts/emacsconfig/</guid>
       <description>Introduction This article aims to provide the essential steps needed to configure GNU Emacs on your own to make it a functional IDE. This config is inspired by Doom Emacs, a configuration framework for GNU Emacs (Emacs in short).
 Emacs is configured via a language called Emacs Lisp. It allows Emacs to be customised to extreme levels. The Emacs Lisp code blocks These blocks should be placed in the file located in ~/.</description>
       <content>
@@ -21,13 +21,13 @@ Emacs is configured via a language called Emacs Lisp. It allows Emacs to be cust
 Introduction
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;
-&lt;p&gt;
-This article aims to provide the &lt;strong&gt;essential&lt;/strong&gt; steps needed to configure &lt;a href=&#34;https://gnu.org/emacs&#34;&gt;GNU Emacs&lt;/a&gt; on your own to make it a functional &lt;strong&gt;IDE&lt;/strong&gt;. This config is inspired by &lt;a href=&#34;https://github.com/doomemacs/doomemacs&#34;&gt;Doom Emacs&lt;/a&gt;, a &lt;em&gt;configuration framework&lt;/em&gt; for GNU Emacs (Emacs in short).&lt;/p&gt;
+&lt;p&gt;This article aims to provide the &lt;strong&gt;essential&lt;/strong&gt; steps needed to configure &lt;a href=&#34;https://gnu.org/emacs&#34;&gt;GNU Emacs&lt;/a&gt; on your own to make it a functional &lt;strong&gt;IDE&lt;/strong&gt;. This config is inspired by &lt;a href=&#34;https://github.com/doomemacs/doomemacs&#34;&gt;Doom Emacs&lt;/a&gt;, a &lt;em&gt;configuration framework&lt;/em&gt; for GNU Emacs (Emacs in short).&lt;/p&gt;
 &lt;p&gt;
 Emacs is configured via a language called &lt;a href=&#34;https://en.wikipedia.org/wiki/Emacs_Lisp&#34;&gt;Emacs Lisp&lt;/a&gt;. It allows Emacs to be customised to &lt;em&gt;extreme&lt;/em&gt; levels. The Emacs Lisp code blocks 
 These blocks should be placed in the file located in &lt;strong&gt;~/.emacs.d/init.el/&lt;/strong&gt; on Linux. Windows users may refer to &lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html&#34;&gt;GNU&amp;#39;s manual&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;
 This config is &lt;strong&gt;declarative&lt;/strong&gt;, and the Emacs Lisp packages specified in this file should install automatically after installation.&lt;/p&gt;
+&lt;hr&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-2&#34; class=&#34;outline-2&#34;&gt;
@@ -35,6 +35,7 @@ This config is &lt;strong&gt;declarative&lt;/strong&gt;, and the Emacs Lisp pack
 Package management
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-2&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;hr&gt;
 &lt;div id=&#34;outline-container-headline-3&#34; class=&#34;outline-3&#34;&gt;
 &lt;h3 id=&#34;headline-3&#34;&gt;
 Setting the package archive
@@ -60,6 +61,7 @@ The code snippet given below bootstraps Use-package so that it can install and m
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;use-package-always-ensure&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;use-package&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;                                                     &lt;span class=&#34;c1&#34;&gt;; load use-package at Emacs startup&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
+&lt;hr&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -69,6 +71,7 @@ The code snippet given below bootstraps Use-package so that it can install and m
 Generic preferences
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-5&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;hr&gt;
 &lt;p&gt;
 These are generic &lt;em&gt;tweaks&lt;/em&gt; that I like better than those in &lt;strong&gt;vanilla&lt;/strong&gt; GNU Emacs.&lt;/p&gt;
 &lt;div class=&#34;src src-emacs-lisp&#34;&gt;
@@ -87,6 +90,7 @@ These are generic &lt;em&gt;tweaks&lt;/em&gt; that I like better than those in &
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq-default&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;tab-width&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;; make default tab spacing 4&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;delete-selection-mode&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;; select text and automatically overwrite without typing backspace&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
+&lt;hr&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-6&#34; class=&#34;outline-2&#34;&gt;
@@ -94,6 +98,7 @@ These are generic &lt;em&gt;tweaks&lt;/em&gt; that I like better than those in &
 Package configuration
 &lt;/h2&gt;
 &lt;div id=&#34;outline-text-headline-6&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;hr&gt;
 &lt;p&gt;
 Let&amp;#39;s use &lt;em&gt;Use-package&lt;/em&gt; to manage packages &lt;strong&gt;declaratively&lt;/strong&gt;. Here are a few packages I recommend:&lt;/p&gt;
 &lt;div id=&#34;outline-container-headline-7&#34; class=&#34;outline-3&#34;&gt;
@@ -119,7 +124,7 @@ Doom Modeline
 &lt;div id=&#34;outline-text-headline-8&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://github.com/seagle0128/doom-modeline&#34;&gt;This&lt;/a&gt; modeline is the default one used in Doom Emacs. It&amp;#39;s &lt;em&gt;minimalistic&lt;/em&gt;, and includes essential features while appearing &lt;strong&gt;unique&lt;/strong&gt;.&lt;/p&gt;
-&lt;img src=&#34;https://themagitian.github.io/Emacs-Config/doom-modeline.png&#34; alt=&#34;/Emacs-Config/doom-modeline.png&#34; title=&#34;Doom Modeline - https://github.com/seagle0128/doom-modeline&#34;/&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/doom-modeline.png&#34; alt=&#34;/EmacsConfig/doom-modeline.png&#34; title=&#34;Doom Modeline - https://github.com/seagle0128/doom-modeline&#34;/&gt;
 &lt;div class=&#34;src src-emacs-lisp&#34;&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;doom-modeline&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:init&lt;/span&gt;
@@ -137,7 +142,7 @@ All the icons
 &lt;div id=&#34;outline-text-headline-9&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://github.com/domtronn/all-the-icons.el&#34;&gt;This&lt;/a&gt; package provides access to a &lt;strong&gt;vast&lt;/strong&gt; set of icons from &lt;em&gt;Github Octicons&lt;/em&gt;, &lt;em&gt;FontAwesome&lt;/em&gt;, etc. They can be used in Vertico, the modeline, Dired buffers, etc.&lt;/p&gt;
-&lt;img src=&#34;https://themagitian.github.io/Emacs-Config/all-the-icons-dired.png&#34; alt=&#34;/Emacs-Config/all-the-icons-dired.png&#34; title=&#34;All The Icons - in Dired&#34;/&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/all-the-icons-dired.png&#34; alt=&#34;/EmacsConfig/all-the-icons-dired.png&#34; title=&#34;All The Icons - in Dired&#34;/&gt;
 &lt;div class=&#34;src src-emacs-lisp&#34;&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;all-the-icons&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -156,7 +161,7 @@ Vertico
 &lt;div id=&#34;outline-text-headline-10&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://github.com/minad/vertico&#34;&gt;Vertico&lt;/a&gt;, short for VERTical Interactive COmpletion, improves upon the default &lt;em&gt;completion&lt;/em&gt; interface in Emacs by providing a &lt;strong&gt;performant&lt;/strong&gt; and &lt;strong&gt;minimalistic&lt;/strong&gt; completion UI. It enhances the &lt;em&gt;minibuffer&lt;/em&gt; interface used &lt;span style=&#34;text-decoration: underline;&#34;&gt;throughout Emacs&lt;/span&gt; for completion.&lt;/p&gt;
-&lt;img src=&#34;https://themagitian.github.io/Emacs-Config/vertico.png&#34; alt=&#34;/Emacs-Config/vertico.png&#34; title=&#34;Vertico with icons&#34;/&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/vertico.png&#34; alt=&#34;/EmacsConfig/vertico.png&#34; title=&#34;Vertico with icons&#34;/&gt;
 &lt;div class=&#34;src src-emacs-lisp&#34;&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;vertico&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:init&lt;/span&gt;
@@ -177,7 +182,7 @@ Keybindings - General &amp;amp; Which-key
 &lt;a href=&#34;https://github.com/noctuid/general.el&#34;&gt;General&lt;/a&gt; provides a convenient, unified way to &lt;strong&gt;create keybindings&lt;/strong&gt; in Emacs. It &lt;span style=&#34;text-decoration: underline;&#34;&gt;integrates well&lt;/span&gt; with &lt;em&gt;Evil mode&lt;/em&gt;. The &lt;code class=&#34;verbatim&#34;&gt;general-define-key&lt;/code&gt; function allows &lt;strong&gt;more flexibility&lt;/strong&gt; in binding keys, compared to the standard &lt;code class=&#34;verbatim&#34;&gt;define-key&lt;/code&gt; function in GNU Emacs.&lt;/p&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://github.com/justbur/emacs-which-key&#34;&gt;Which-key&lt;/a&gt; is another package for Emacs that provides a &lt;em&gt;popup&lt;/em&gt; displaying the &lt;strong&gt;available keybindings&lt;/strong&gt; after a &lt;span style=&#34;text-decoration: underline;&#34;&gt;particular sequence&lt;/span&gt; of keys has been typed. It&amp;#39;s quite useful in discovering keybindings in &lt;em&gt;different modes&lt;/em&gt; and in large keymaps.&lt;/p&gt;
-&lt;img src=&#34;https://themagitian.github.io/Emacs-Config/which-key.png&#34; alt=&#34;/Emacs-Config/which-key.png&#34; title=&#34;General, along with Which-key to manage keybindings&#34;/&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/which-key.png&#34; alt=&#34;/EmacsConfig/which-key.png&#34; title=&#34;General, along with Which-key to manage keybindings&#34;/&gt;
 &lt;div class=&#34;src src-emacs-lisp&#34;&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;general&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:init&lt;/span&gt;
@@ -257,31 +262,6 @@ Keybindings - General &amp;amp; Which-key
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;:keymaps&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;override-global-map&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;s&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;evil-avy-goto-char-timer&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;:which-key&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hop to&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;
-;; Custom functions
-(defun write-and-quit()
-  (interactive)
-  (save-some-buffers t)
-  (kill-emacs))&lt;/p&gt;
-&lt;p&gt;
-;; Function to create numbered scratch buffers
-(defun scratch ()
-  &amp;#34;Create a new scratch buffer to work in&amp;#34;
-  (interactive)
-  (let ((n 0) bufname)
-    (while (progn
-             (setq bufname (concat &amp;#34;&lt;strong&gt;scratch&amp;#34; (if (= n 0) &amp;#34;&amp;#34; (int-to-string n)) &amp;#34;&lt;/strong&gt;&amp;#34;))
-             (setq n (1+ n))
-             (get-buffer bufname)))
-  (switch-to-buffer (get-buffer-create bufname))
-  (if (= n 1) initial-major-mode)))&lt;/p&gt;
-&lt;p&gt;
-;; Function to kill all other buffers
-(defun kill-other-buffers ()
-  (interactive)
-  (require &amp;#39;protbuf)
-  (protect-buffer-from-kill-mode nil (get-buffer &amp;#34;&lt;strong&gt;dashboard&lt;/strong&gt;&amp;#34;)) ; protecting Dashboard buffer from SPC b o
-  (mapc &amp;#39;kill-buffer (delq (current-buffer) (buffer-list))))&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;outline-container-headline-12&#34; class=&#34;outline-3&#34;&gt;
@@ -290,8 +270,8 @@ Flycheck
 &lt;/h3&gt;
 &lt;div id=&#34;outline-text-headline-12&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;
-&lt;a href=&#34;https://www.flycheck.org/en/latest/&#34;&gt;Flycheck&lt;/a&gt; is a modern &lt;em&gt;on-the-fly&lt;/em&gt; &lt;strong&gt;syntax checking&lt;/strong&gt; extension for GNU Emacs. It aims to &lt;strong&gt;replace the classic Flymake&lt;/strong&gt;, part of GNU Emacs. It calls upon &lt;em&gt;externally installed&lt;/em&gt; &lt;strong&gt;syntax&lt;/strong&gt; and &lt;strong&gt;linting checkers&lt;/strong&gt; to check code as you write it.&lt;/p&gt;
-&lt;img src=&#34;https://themagitian.github.io/Emacs-Config/flycheck.png&#34; alt=&#34;/Emacs-Config/flycheck.png&#34; title=&#34;Flycheck displaying an error in C source code&#34;/&gt;
+&lt;a href=&#34;https://www.flycheck.org/en/latest/&#34;&gt;Flycheck&lt;/a&gt; is a modern &lt;em&gt;on-the-fly&lt;/em&gt; &lt;strong&gt;syntax checking&lt;/strong&gt; package for GNU Emacs. It aims to &lt;strong&gt;replace the classic Flymake&lt;/strong&gt;, part of GNU Emacs. It calls upon &lt;em&gt;externally installed&lt;/em&gt; &lt;strong&gt;syntax&lt;/strong&gt; and &lt;strong&gt;linting checkers&lt;/strong&gt; to check code as you write it.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/flycheck.png&#34; alt=&#34;/EmacsConfig/flycheck.png&#34; title=&#34;Flycheck displaying an error in C source code&#34;/&gt;
 &lt;div class=&#34;src src-emacs-lisp&#34;&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;flycheck&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:init&lt;/span&gt;
@@ -306,216 +286,384 @@ Magit
 &lt;div id=&#34;outline-text-headline-13&#34; class=&#34;outline-text-3&#34;&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://magit.vc&#34;&gt;Magit&lt;/a&gt; is an interface to the popular &lt;strong&gt;Git&lt;/strong&gt; version control system. Implemented &lt;strong&gt;entirely&lt;/strong&gt; in Emacs Lisp, it interacts with the command-line &lt;code class=&#34;verbatim&#34;&gt;git&lt;/code&gt; program, and provides &lt;em&gt;functions&lt;/em&gt; and &lt;em&gt;keybindings&lt;/em&gt; to easily perform &lt;span style=&#34;text-decoration: underline;&#34;&gt;almost all Git operations&lt;/span&gt; from within Emacs.&lt;/p&gt;
-&lt;img src=&#34;https://themagitian.github.io/Emacs-Config/magit.png&#34; alt=&#34;/Emacs-Config/magit.png&#34; title=&#34;Using Magit to stage files&#34;/&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/magit.png&#34; alt=&#34;/EmacsConfig/magit.png&#34; title=&#34;Using Magit to stage files&#34;/&gt;
 &lt;div class=&#34;src src-emacs-lisp&#34;&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;magit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;
-;; Company
-(use-package company)
-(add-hook &amp;#39;prog-mode-hook &amp;#39;global-company-mode)
-(add-hook &amp;#39;prog-mode-hook &amp;#39;company-tng-mode)
-(add-hook &amp;#39;prog-mode-hook &amp;#39;electric-pair-mode)
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 2)&lt;/p&gt;
-&lt;p&gt;
-;; Company completion icons
-;; (use-package company-box
-  ;; :hook (company-mode . company-box-mode))&lt;/p&gt;
-&lt;p&gt;
-;; Eglot
-(use-package eglot
-  :defer t
-  :hook (python-mode . eglot-ensure)
-  :hook (c-mode . eglot-ensure)
-  :hook (c++-mode . eglot-ensure)
-  :hook (go-mode . eglot-ensure))&lt;/p&gt;
-&lt;p&gt;
-;; Quickrun
-(use-package quickrun)
-(use-package marginalia
-  :after vertico
-  :init
-  (setq marginalia-annotators &amp;#39;(marginalia-annotators-heavy marginalia-annotators-light nil))
-  (marginalia-mode)
-  (with-eval-after-load &amp;#39;projectile
-    (add-to-list &amp;#39;marginalia-command-categories &amp;#39;(projectile-find-file . file)))
-  )&lt;/p&gt;
-&lt;p&gt;
-;; Org-mode
-(use-package htmlize)
-(use-package org-modern
-  :hook (org-mode . org-modern-mode)
-  :config
-  (setq org-modern-star &amp;#39;(&amp;#34;✪&amp;#34; &amp;#34;✪&amp;#34; &amp;#34;✪&amp;#34; &amp;#34;✪&amp;#34; &amp;#34;✪&amp;#34;)))&lt;/p&gt;
-&lt;p&gt;
-(defadvice org-babel-execute-src-block (around load-language nil activate)
-  &amp;#34;Load language if needed&amp;#34;
-  (let ((language (org-element-property :language (org-element-at-point))))
-    (unless (cdr (assoc (intern language) org-babel-load-languages))
-      (add-to-list &amp;#39;org-babel-load-languages (cons (intern language) t))
-      (org-babel-do-load-languages &amp;#39;org-babel-load-languages org-babel-load-languages))
-    ad-do-it))
-(add-hook &amp;#39;org-mode-hook &amp;#39;org-indent-mode)
-(setq org-src-preserve-indentation nil
-      org-src-tab-acts-natively t
-      org-edit-src-content-indentation 0
-      org-confirm-babel-evaluate nil
-      org-hide-emphasis-markers t)&lt;/p&gt;
-&lt;p&gt;
-(org-babel-do-load-languages
- &amp;#39;org-babel-load-languages
- &amp;#39;((shell . t)
-   (C . t)
-   (python . t)
-   (emacs-lisp . t)))
-;; Configuring Org exports opening in EWW&lt;/p&gt;
-&lt;p&gt;
-(defun org-html-export-to-html-and-open ()
-  &amp;#34;Export the Org file to HTML and open it in EWW.&amp;#34;
-  (interactive)
-  (let* ((org-file (buffer-file-name))
-         (html-file (concat (file-name-sans-extension org-file) &amp;#34;.html&amp;#34;))
-         (html-file-url html-file))
-    (org-export-to-file &amp;#39;html html-file nil nil nil nil)
- ;; (split-window-left)
- ;; (evil-window-vsplit)
-    (eww-open-file html-file-url)))&lt;/p&gt;
-&lt;p&gt;
-(add-hook &amp;#39;org-mode-hook
-          (lambda ()
-            (local-set-key (kbd &amp;#34;C-c C-o&amp;#34;) &amp;#39;org-html-export-to-html-and-open)))&lt;/p&gt;
-&lt;p&gt;
-(setq browse-url-browser-function &amp;#39;eww-browse-url)&lt;/p&gt;
-&lt;p&gt;
-;; Smooth scrolling
-(require &amp;#39;pixel-scroll)
-(setq scroll-margin 1
-  scroll-step 5000
-  scroll-conservatively 100
-  scroll-preserve-screen-position 1
-  pixel-scroll-precision-use-momentum t)
-(pixel-scroll-precision-mode 1)
-(pixel-scroll-mode t)&lt;/p&gt;
-&lt;p&gt;
-;; Helpful
-(use-package helpful)&lt;/p&gt;
-&lt;p&gt;
-;; Rainbow brackets
-(use-package rainbow-delimiters)
-(add-hook &amp;#39;prog-mode-hook &amp;#39;rainbow-delimiters-mode)&lt;/p&gt;
-&lt;p&gt;
-;; Tree-sitter
-(use-package tree-sitter)
-(use-package tree-sitter-langs)
-(add-hook &amp;#39;tree-sitter-mode-hook &amp;#39;tree-sitter-hl-mode)
-(add-hook &amp;#39;python-mode-hook #&amp;#39;tree-sitter-mode)
-(add-hook &amp;#39;sh-mode-hook #&amp;#39;tree-sitter-mode)&lt;/p&gt;
-&lt;p&gt;
-;; Easymotion
-(use-package evil-easymotion)&lt;/p&gt;
-&lt;p&gt;
-;; Dashboard
-(use-package dashboard
-  :config
-  (dashboard-setup-startup-hook))
-(setq dashboard-banner-logo-title &amp;#39;nil
-      dashboard-startup-banner &amp;#34;~/.emacs.d/pics/onedark_logo.svg&amp;#34;
-      dashboard-center-content t
-      dashboard-show-shortcuts nil
-      dashboard-items nil
-      dashboard-set-heading-icons t
-      dashboard-set-file-icons t
-      dashboard-set-footer nil)&lt;/p&gt;
-&lt;p&gt;
-;; Base-16 onedark
-(use-package base16-theme
-  :ensure t)
-(load-theme &amp;#39;base16-onedark t)&lt;/p&gt;
-&lt;p&gt;
-;; Vterm
-;; (use-package vterm
-;;   :ensure t) ;; Install Cmake for compiling only
-;; (add-hook &amp;#39;vterm-mode-hook(lambda() (setq buffer-face-mode-face &amp;#39;(:family &amp;#34;JetBrains Mono Nerd Font&amp;#34;)) (buffer-face-mode))) ;; Needs JBMNF -&amp;gt; ttf-jetbrains-mono-nerd&lt;/p&gt;
-&lt;p&gt;
-;; Diff HL
-(use-package diff-hl)
-(add-hook &amp;#39;prog-mode-hook &amp;#39;diff-hl-mode)
-(custom-set-faces
- &amp;#39;(diff-hl-change ((t (:background &amp;#34;#61afef&amp;#34;))))
- &amp;#39;(diff-hl-insert ((t (:background &amp;#34;#97c277&amp;#34;))))
- &amp;#39;(diff-hl-delete ((t (:background &amp;#34;#e06c75&amp;#34;)))))
-(diff-hl-flydiff-mode)
-(global-diff-hl-mode 1)
-(add-hook &amp;#39;magit-pre-refresh-hook &amp;#39;diff-hl-magit-pre-refresh)
-(add-hook &amp;#39;magit-post-refresh-hook &amp;#39;diff-hl-magit-post-refresh)&lt;/p&gt;
-&lt;p&gt;
-;; Consult
-(use-package consult)&lt;/p&gt;
-&lt;p&gt;
-;; Orderless
-(use-package orderless
-  :ensure t
-  :custom
-  (completion-styles &amp;#39;(orderless basic))
-  (completion-category-overrides &amp;#39;((file (styles basic partial-completion)))))&lt;/p&gt;
-&lt;p&gt;
-;; Eros
-(use-package eros
-  :after quickrun)
-(require &amp;#39;quickrun)
-(require &amp;#39;eros)
-(eros-mode 1)
-(custom-set-faces
- &amp;#39;(eros-result-overlay-face ((t (:foreground &amp;#34;#000000&amp;#34; :background &amp;#34;#61afef&amp;#34;))))
- &amp;#39;(eros-eval-overlay-face ((t (:background &amp;#34;#61afef&amp;#34; :foreground &amp;#34;#97c277&amp;#34;))))) ; not sure what this line does
-(defun clear-eros-overlays ()
-  (interactive)
-  (remove-overlays (point-min) (point-max)))&lt;/p&gt;
-&lt;p&gt;
-(defun quickrun-hide-window-after-execution ()
-  (interactive)
-  (let ((win (get-buffer-window &amp;#34;&lt;strong&gt;quickrun&lt;/strong&gt;&amp;#34;)))
-    (when win
-      (delete-window win))))&lt;/p&gt;
-&lt;p&gt;
-(defun eros-quickrun-show-overlay ()
-  (interactive)
-  (eros-mode -1)
-  (eros-mode 1)
-  ;; (kill-buffer &amp;#34;&lt;strong&gt;quickrun&lt;/strong&gt;&amp;#34;)
-  ;; (generate-new-buffer &amp;#34;&lt;strong&gt;quickrun&lt;/strong&gt;&amp;#34;)
-  (when (and quickrun–timeout-timer
-             (not (equal quickrun–timeout-timer &amp;#39;ignore)))
-    (cancel-timer quickrun–timeout-timer))
-  (setq quickrun–timeout-timer
-        (run-at-time 0.5 nil
-                     (lambda ()
-                       (let ((output (with-current-buffer quickrun–buffer-name
-                                       (buffer-substring-no-properties (point-min) (point-max)))))
-                         (with-current-buffer (window-buffer (selected-window))
-                           (condition-case nil
-                               (eros–make-result-overlay output)
-                             (error (message &amp;#34;Error creating Eros overlay&amp;#34;)))
-                           (with-current-buffer quickrun–buffer-name
-                             (let ((inhibit-read-only t))
-                               (erase-buffer)))))))))&lt;/p&gt;
-&lt;p&gt;
-(setq quickrun-focus-p nil)
-(add-hook &amp;#39;quickrun-after-run-hook &amp;#39;eros-quickrun-show-overlay)
-(add-hook &amp;#39;quickrun-after-run-hook &amp;#39;clear-eros-overlays)
-(add-hook &amp;#39;quickrun-after-run-hook &amp;#39;quickrun-hide-window-after-execution)&lt;/p&gt;
-&lt;p&gt;
-;; Go configuration
-(use-package go-mode)&lt;/p&gt;
-&lt;p&gt;
-;; Arduino configuration
-(use-package arduino-mode)&lt;/p&gt;
-&lt;p&gt;
-;; Eat (Emulate A Terminal)
-(use-package eat)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-14&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-14&#34;&gt;
+Company-mode
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-14&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/company-mode/company-mode&#34;&gt;Company mode&lt;/a&gt; is a &lt;strong&gt;text completion framework&lt;/strong&gt; for GNU Emacs. It uses several back- and front-ends to fetch and display completion candidates, respectively. The backends include &lt;em&gt;files&lt;/em&gt;, &lt;em&gt;keywords&lt;/em&gt;, etc. Company mode can be &lt;span style=&#34;text-decoration: underline;&#34;&gt;integrated&lt;/span&gt; with &lt;strong&gt;LSP clients&lt;/strong&gt; such as &lt;em&gt;Eglot&lt;/em&gt; to provide &lt;strong&gt;autocomplete&lt;/strong&gt; features through a &lt;em&gt;language server&lt;/em&gt;.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/company-mode.png&#34; alt=&#34;/EmacsConfig/company-mode.png&#34; title=&#34;Company mode integration with Eglot&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;company&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;prog-mode-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;global-company-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;prog-mode-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;company-tng-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;prog-mode-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;electric-pair-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;company-idle-delay&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;company-minimum-prefix-length&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-15&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-15&#34;&gt;
+Eglot
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-15&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://www.gnu.org/software/emacs/manual/html_mono/eglot.html&#34;&gt;Eglot&lt;/a&gt; is a client for the &lt;a href=&#34;https://en.wikipedia.org/wiki/Language_Server_Protocol&#34;&gt;Language Server protocol&lt;/a&gt; in Emacs. It provides a set of &lt;em&gt;commands&lt;/em&gt; that enhance the source code editing features of GNU Emacs. Since LSP is a &lt;span style=&#34;text-decoration: underline;&#34;&gt;standard protocol&lt;/span&gt; used in various text editors, &lt;strong&gt;external programs&lt;/strong&gt; can be invoked to provide programming &lt;strong&gt;language-agnostic&lt;/strong&gt; features such as definition of variables, syntax errors, etc. It serves as the &lt;strong&gt;backend&lt;/strong&gt; for autocompletion in Company-mode.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/eglot.png&#34; alt=&#34;/EmacsConfig/eglot.png&#34; title=&#34;Eglot LSP functionality&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eglot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:defer&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:hook&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;python-mode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eglot-ensure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:hook&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;c-mode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eglot-ensure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:hook&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;c++-mode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eglot-ensure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:hook&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;go-mode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eglot-ensure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-16&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-16&#34;&gt;
+Quickrun.el
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-16&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/emacsorphanage/quickrun&#34;&gt;Quickrun&lt;/a&gt; allows you to &lt;strong&gt;execute code&lt;/strong&gt; in the &lt;em&gt;current&lt;/em&gt; buffer. It supports execution of both &lt;em&gt;interpreted&lt;/em&gt; and &lt;em&gt;compiled&lt;/em&gt; languages, and even some markup languages.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/quickrun.png&#34; alt=&#34;/EmacsConfig/quickrun.png&#34; title=&#34;Quickrun executing C code - inline output display configured using Eros&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;marginalia&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:after&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;vertico&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:init&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;marginalia-annotators&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;marginalia-annotators-heavy&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;marginalia-annotators-light&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;marginalia-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;with-eval-after-load&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;projectile&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-to-list&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;marginalia-command-categories&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;projectile-find-file&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-17&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-17&#34;&gt;
+Org-mode
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-17&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://orgmode.org&#34;&gt;Org mode&lt;/a&gt; is a powerful tool built into GNU Emacs that functions like a &lt;strong&gt;markup language&lt;/strong&gt;, helping you maintain notes, TODO lists, etc. The simple language makes it trivial to &lt;strong&gt;structure&lt;/strong&gt; and &lt;strong&gt;organize&lt;/strong&gt; documents. The language is &lt;strong&gt;specific&lt;/strong&gt; to Emacs, and is used extensively in &lt;span style=&#34;text-decoration: underline;&#34;&gt;literate programming&lt;/span&gt; and scientific research. This document is written in Org itself, and it includes markup and &lt;strong&gt;code blocks&lt;/strong&gt;, which can be executed directly from within Emacs.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/orgmode.png&#34; alt=&#34;/EmacsConfig/orgmode.png&#34; title=&#34;Org document - source code of this blog&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;htmlize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-modern&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:hook&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;org-mode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-modern-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-modern-star&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;✪&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;✪&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;✪&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;✪&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;✪&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defadvice&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-babel-execute-src-block&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;around&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;load-language&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;activate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;s&#34;&gt;&amp;#34;Load language if needed&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;language&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;org-element-property&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;:language&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;org-element-at-point&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;unless&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;cdr&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;assoc&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;intern&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;language&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-babel-load-languages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-to-list&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;org-babel-load-languages&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;cons&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;intern&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;language&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;org-babel-do-load-languages&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;org-babel-load-languages&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-babel-load-languages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nv&#34;&gt;ad-do-it&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;org-mode-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;org-indent-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-src-preserve-indentation&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;org-src-tab-acts-natively&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;org-edit-src-content-indentation&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;org-confirm-babel-evaluate&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;org-hide-emphasis-markers&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;org-babel-do-load-languages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;org-babel-load-languages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;shell&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;C&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;python&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;emacs-lisp&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;;; Configuring Org exports opening in EWW&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defun&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-html-export-to-html-and-open&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;s&#34;&gt;&amp;#34;Export the Org file to HTML and open it in EWW.&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;interactive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;let*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;org-file&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;buffer-file-name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;html-file&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;concat&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;file-name-sans-extension&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;org-file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;.html&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;         &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;html-file-url&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;html-file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;org-export-to-file&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;html&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;html-file&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;eww-open-file&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;html-file-url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;org-mode-hook&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;lambda&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;local-set-key&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;kbd&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;C-c C-o&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;org-html-export-to-html-and-open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;browse-url-browser-function&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;eww-browse-url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-18&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-18&#34;&gt;
+Helpful
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-18&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/Wilfred/helpful&#34;&gt;Helpful&lt;/a&gt; is an Emacs package that &lt;strong&gt;enhances&lt;/strong&gt; the builtin help menu in Emacs, by providing &lt;strong&gt;more contextual&lt;/strong&gt; info, such as &lt;em&gt;function signature&lt;/em&gt;, &lt;em&gt;documentation&lt;/em&gt;, &lt;em&gt;keybindings&lt;/em&gt;, etc.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/helpful.png&#34; alt=&#34;/EmacsConfig/helpful.png&#34; title=&#34;Helpful&amp;#39;s documentation interface&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;helpful&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-19&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-19&#34;&gt;
+Rainbow delimiters
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-19&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/Fanael/rainbow-delimiters&#34;&gt;Rainbow delimiters&lt;/a&gt; provides a mode that &lt;strong&gt;highlights delimiters&lt;/strong&gt;, such as &amp;#34;()&amp;#34; and &amp;#34;[]&amp;#34;, according to their &lt;em&gt;depth&lt;/em&gt;. This makes it easy to spot &lt;strong&gt;matching parantheses&lt;/strong&gt;, brackets, etc.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/rainbow-delimiters.png&#34; alt=&#34;/EmacsConfig/rainbow-delimiters.png&#34; title=&#34;Rainbow delimiters in Elisp code&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;rainbow-delimiters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;prog-mode-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;rainbow-delimiters-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-20&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-20&#34;&gt;
+Tree-sitter
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-20&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/emacs-tree-sitter/elisp-tree-sitter&#34;&gt;This&lt;/a&gt; package integrates Emacs and &lt;a href=&#34;https://tree-sitter.github.io&#34;&gt;Tree-sitter&lt;/a&gt;, an &lt;em&gt;incremental parsing&lt;/em&gt; library. It provides faster and fine-grained &lt;strong&gt;syntax highlighting&lt;/strong&gt; in Emacs, along with &lt;em&gt;syntax trees&lt;/em&gt; for source code.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/tree-sitter.png&#34; alt=&#34;/EmacsConfig/tree-sitter.png&#34; title=&#34;Tree-sitter&amp;#39;s effect on syntax highlighting&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;tree-sitter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;tree-sitter-langs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;tree-sitter-mode-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;tree-sitter-hl-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;python-mode-hook&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;tree-sitter-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;sh-mode-hook&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;#&amp;#39;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;tree-sitter-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-21&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-21&#34;&gt;
+Dashboard
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-21&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/emacs-dashboard/emacs-dashboard&#34;&gt;Dashboard&lt;/a&gt; is an package that provides a customizable &lt;strong&gt;startup screen&lt;/strong&gt; for GNU Emacs. It can be configured to show agenda items, bookmarks, &lt;em&gt;recently modified files&lt;/em&gt;, etc.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/dashboard.png&#34; alt=&#34;/EmacsConfig/dashboard.png&#34; title=&#34;Dashboard, with a different startup image and startup time&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;dashboard&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;dashboard-setup-startup-hook&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;dashboard-banner-logo-title&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;dashboard-startup-banner&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;~/.emacs.d/pics/onedark_logo.svg&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;dashboard-center-content&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;dashboard-show-shortcuts&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;dashboard-items&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;dashboard-set-heading-icons&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;dashboard-set-file-icons&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nv&#34;&gt;dashboard-set-footer&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-22&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-22&#34;&gt;
+Base 16 OneDark colorscheme
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-22&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/tinted-theming/base16-emacs&#34;&gt;This&lt;/a&gt; package includes a collection of a large number of &lt;em&gt;standard&lt;/em&gt; themes, each comprising of &lt;strong&gt;16 base colours&lt;/strong&gt;. Since I like the &lt;a href=&#34;https://github.com/Binaryify/OneDark-Pro&#34;&gt;OneDark&lt;/a&gt; colorscheme from the Atom text editor, I&amp;#39;ve set the base16-onedark colorscheme in Emacs too.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/base16-onedark.png&#34; alt=&#34;/EmacsConfig/base16-onedark.png&#34; title=&#34;A few themes from the base16-emacs package&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;base16-theme&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:ensure&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;load-theme&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;base16-onedark&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-23&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-23&#34;&gt;
+Diff HL
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-23&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/dgutov/diff-hl&#34;&gt;Diff-HL&lt;/a&gt; is a package for GNU Emacs that provides a mode for &lt;strong&gt;highlighting uncommitted changes&lt;/strong&gt; in version-control systems such as Git, Mercurial, etc. These are displayed in the &lt;em&gt;gutter&lt;/em&gt; region of the Emacs window.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/diff-hl.png&#34; alt=&#34;/EmacsConfig/diff-hl.png&#34; title=&#34;Diff-HL showing Git status in the gutter&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;diff-hl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;prog-mode-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;diff-hl-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;custom-set-faces&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;diff-hl-change&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;:background&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;#61afef&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;diff-hl-insert&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;:background&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;#97c277&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;diff-hl-delete&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;:background&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;#e06c75&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;diff-hl-flydiff-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;global-diff-hl-mode&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;magit-pre-refresh-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;diff-hl-magit-pre-refresh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;magit-post-refresh-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;diff-hl-magit-post-refresh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-24&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-24&#34;&gt;
+Consult
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-24&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/minad/consult&#34;&gt;Consult&lt;/a&gt; is an Emacs package that provides commands to &lt;strong&gt;enhance&lt;/strong&gt; the user&amp;#39;s interaction with the &lt;em&gt;minibuffer&lt;/em&gt;. It supports &lt;strong&gt;live-previews&lt;/strong&gt; for currently open buffers, search within buffers, files, etc.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/consult.png&#34; alt=&#34;/EmacsConfig/consult.png&#34; title=&#34;Consult-grep over the entire project, with live preview&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;consult&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-25&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-25&#34;&gt;
+Orderless
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-25&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/oantolin/orderless&#34;&gt;Orderless&lt;/a&gt; provides a completion style with higher &lt;em&gt;control&lt;/em&gt; and &lt;em&gt;flexibility&lt;/em&gt; over &lt;strong&gt;completion&lt;/strong&gt;, than that provided by default in GNU Emacs. I&amp;#39;ve configured it to make &lt;em&gt;file&lt;/em&gt; autocompletion find &lt;strong&gt;partial&lt;/strong&gt; matches.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/orderless.png&#34; alt=&#34;/EmacsConfig/orderless.png&#34; title=&#34;Orderless used in Dired file matching, alongside Vertico&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;orderless&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:ensure&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:custom&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;completion-styles&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;orderless&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;basic&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;completion-category-overrides&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;styles&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;basic&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;partial-completion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-26&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-26&#34;&gt;
+Eros
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-26&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://github.com/xiongtx/eros&#34;&gt;Eros&lt;/a&gt;, short for &lt;code class=&#34;verbatim&#34;&gt;E&lt;/code&gt; valuation &lt;code class=&#34;verbatim&#34;&gt;R&lt;/code&gt; esults &lt;code class=&#34;verbatim&#34;&gt;O&lt;/code&gt; verlay &lt;code class=&#34;verbatim&#34;&gt;S&lt;/code&gt;, displays results from &lt;strong&gt;evaluating Emacs Lisp&lt;/strong&gt; code inside a &lt;em&gt;temporary annotation&lt;/em&gt; within the buffer. This is useful to display the &lt;strong&gt;output&lt;/strong&gt; of code execution without having to switch to a &lt;em&gt;scratch&lt;/em&gt; buffer. The below code configures &lt;strong&gt;Quickrun&lt;/strong&gt; to be a backend for Eros, which enables it to display the output of code executed in various languages.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/eros.png&#34; alt=&#34;/EmacsConfig/eros.png&#34; title=&#34;Eros showing execution of Emacs Lisp code&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eros&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nb&#34;&gt;:after&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;quickrun&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;eros&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;eros-mode&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;custom-set-faces&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;eros-result-overlay-face&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;:foreground&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;#000000&amp;#34;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;:background&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;#61afef&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;eros-eval-overlay-face&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;no&#34;&gt;t&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;:background&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;#61afef&amp;#34;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;:foreground&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;#97c277&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;; not sure what this line does&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defun&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;clear-eros-overlays&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;interactive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;remove-overlays&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;point-min&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;point-max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defun&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun-hide-window-after-execution&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;interactive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;win&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;get-buffer-window&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;*quickrun*&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;when&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;win&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;delete-window&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;win&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defun&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eros-quickrun-show-overlay&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;interactive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;eros-mode&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;-1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;eros-mode&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;when&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun--timeout-timer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;equal&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun--timeout-timer&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;ignore&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;cancel-timer&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun--timeout-timer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun--timeout-timer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;run-at-time&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.5&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;lambda&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                       &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;output&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;with-current-buffer&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun--buffer-name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                                       &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;buffer-substring-no-properties&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;point-min&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;point-max&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                         &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;with-current-buffer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;window-buffer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;selected-window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                           &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;condition-case&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                               &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;eros--make-result-overlay&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;output&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                             &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;ne&#34;&gt;error&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Error creating Eros overlay&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                           &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;with-current-buffer&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun--buffer-name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                             &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;inhibit-read-only&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                               &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;erase-buffer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))))))))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;quickrun-focus-p&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;quickrun-after-run-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;eros-quickrun-show-overlay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;quickrun-after-run-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;clear-eros-overlays&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;add-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;quickrun-after-run-hook&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;quickrun-hide-window-after-execution&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-27&#34; class=&#34;outline-3&#34;&gt;
+&lt;h3 id=&#34;headline-27&#34;&gt;
+Eat
+&lt;/h3&gt;
+&lt;div id=&#34;outline-text-headline-27&#34; class=&#34;outline-text-3&#34;&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://codeberg.org/akib/emacs-eat&#34;&gt;Emulate A Terminal&lt;/a&gt; is a terminal emulator written &lt;strong&gt;entirely&lt;/strong&gt; in Emacs Lisp. It&amp;#39;s thrice as fast as &lt;em&gt;Term&lt;/em&gt;, the terminal &lt;strong&gt;built-in&lt;/strong&gt; to Emacs. It has several distinct features, such as &lt;em&gt;sixel support&lt;/em&gt;, &lt;em&gt;shell integration&lt;/em&gt;, etc.&lt;/p&gt;
+&lt;img src=&#34;https://themagitian.github.io/EmacsConfig/eat.png&#34; alt=&#34;/EmacsConfig/eat.png&#34; title=&#34;EAT&#34;/&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;use-package&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;eat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-28&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-28&#34;&gt;
+Miscellaneous functions
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-28&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;hr&gt;
+&lt;p&gt;
+Given below are a few &lt;em&gt;helper&lt;/em&gt; functions for a few keybindings.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Function to write buffers and quit, with confirmation for unsaved buffers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defun&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;write-and-quit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;interactive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;save-some-buffers&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;kill-emacs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;This function creates new numbered scratch buffers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defun&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;scratch&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;s&#34;&gt;&amp;#34;Create a new scratch buffer to work in&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;interactive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;bufname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;progn&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;bufname&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;concat&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;*scratch&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;int-to-string&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;setq&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;1+&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;             &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;get-buffer&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;bufname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;switch-to-buffer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;get-buffer-create&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;bufname&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;initial-major-mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;This function kills all other buffers, while retaining just the Dashboard buffer.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;src src-emacs-lisp&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;defun&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;kill-other-buffers&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;interactive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;protbuf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;protect-buffer-from-kill-mode&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;nil&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;get-buffer&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;*dashboard*&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;; protecting Dashboard buffer from SPC b o&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;mapc&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;kill-buffer&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;delq&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;current-buffer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;buffer-list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))))&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;outline-container-headline-29&#34; class=&#34;outline-2&#34;&gt;
+&lt;h2 id=&#34;headline-29&#34;&gt;
+Conclusion
+&lt;/h2&gt;
+&lt;div id=&#34;outline-text-headline-29&#34; class=&#34;outline-text-2&#34;&gt;
+&lt;hr&gt;
+&lt;p&gt;
+This is, &lt;em&gt;by no stretch of imagination&lt;/em&gt;, an exhaustive list of Emacs packages. This configuration is merely a &lt;strong&gt;starting point&lt;/strong&gt;. Being &lt;span style=&#34;text-decoration: underline;&#34;&gt;highly&lt;/span&gt; customizable, you may continue to &lt;strong&gt;explore&lt;/strong&gt;, &lt;strong&gt;adapt&lt;/strong&gt; and create an &lt;em&gt;environment&lt;/em&gt; that best suites your workflow.&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </content>

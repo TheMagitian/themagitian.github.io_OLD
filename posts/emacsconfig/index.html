@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Configuring Emacs :: </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The first steps of writing your own Emacs config" />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://themagitian.github.io/posts/emacsconfig/" />
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://themagitian.github.io/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="https://themagitian.github.io/img/theme-colors/red.png">
+  <link rel="apple-touch-icon" href="https://themagitian.github.io/img/theme-colors/red.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Configuring Emacs">
+<meta property="og:description" content="The first steps of writing your own Emacs config" />
+<meta property="og:url" content="https://themagitian.github.io/posts/emacsconfig/" />
+<meta property="og:site_name" content="" />
+
+  
+  
+  <meta property="og:image" content="https://themagitian.github.io/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2023-11-12 14:10:03 &#43;0530 IST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="red">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Magitian&#39;s blogs
+  </div>
+</a>
+
+    </div>
+    
+    
+  </div>
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://themagitian.github.io/posts/emacsconfig/">Configuring Emacs</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2023-11-12</time><span class="post-author">Srinath Anand</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://themagitian.github.io/tags/emacs/">Emacs</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Introduction
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>This article aims to provide the <strong>essential</strong> steps needed to configure <a href="https://gnu.org/emacs">GNU Emacs</a> on your own to make it a functional <strong>IDE</strong>. This config is inspired by <a href="https://github.com/doomemacs/doomemacs">Doom Emacs</a>, a <em>configuration framework</em> for GNU Emacs (Emacs in short).</p>
+<p>
+Emacs is configured via a language called <a href="https://en.wikipedia.org/wiki/Emacs_Lisp">Emacs Lisp</a>. It allows Emacs to be customised to <em>extreme</em> levels. The Emacs Lisp code blocks 
+These blocks should be placed in the file located in <strong>~/.emacs.d/init.el/</strong> on Linux. Windows users may refer to <a href="https://www.gnu.org/software/emacs/manual/html_node/efaq-w32/Location-of-init-file.html">GNU&#39;s manual</a>.</p>
+<p>
+This config is <strong>declarative</strong>, and the Emacs Lisp packages specified in this file should install automatically after installation.</p>
+<hr>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Package management
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<hr>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Setting the package archive
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;package</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;package-archives</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;melpa&#34;</span> <span class="o">.</span> <span class="s">&#34;https://melpa.org/packages/&#34;</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Use-package
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<p>
+<a href="https://github.com/jwiegley/use-package">Use-package</a> is a <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Macros.html">macro</a> that manages package configuration. It uses the built-in <em>package.el</em>, which comes with standard GNU Emacs, as its backend.
+The code snippet given below bootstraps Use-package so that it can install and manage itself.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">unless</span> <span class="p">(</span><span class="nv">package-installed-p</span> <span class="ss">&#39;use-package</span><span class="p">)</span> <span class="p">(</span><span class="nv">package-install</span> <span class="ss">&#39;use-package</span><span class="p">))</span> <span class="c1">; install use-package with package.el</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;use-package-ensure</span><span class="p">)</span>                                              <span class="c1">; ensure that it installs automatically</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">use-package-always-ensure</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;use-package</span><span class="p">)</span>                                                     <span class="c1">; load use-package at Emacs startup</span></span></span></code></pre></div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Generic preferences
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<hr>
+<p>
+These are generic <em>tweaks</em> that I like better than those in <strong>vanilla</strong> GNU Emacs.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">inhibit-splash-screen</span> <span class="no">t</span><span class="p">)</span> <span class="c1">; disable startup screen</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">menu-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>             <span class="c1">; disable the menu bar below the application window</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">tool-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>             <span class="c1">; disable the Emacs tool bar </span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">scroll-bar-mode</span> <span class="mi">-1</span><span class="p">)</span>           <span class="c1">; disable the scroll bar</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">global-visual-line-mode</span> <span class="no">t</span><span class="p">)</span>    <span class="c1">; disable visual line mode</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">auto-save-mode</span> <span class="no">nil</span><span class="p">)</span>           <span class="c1">; don&#39;t auto save files by default</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">initial-buffer-choice</span> <span class="p">(</span><span class="nb">lambda</span><span class="p">()</span> <span class="p">(</span><span class="nf">get-buffer</span> <span class="s">&#34;*dashboard*&#34;</span><span class="p">)))</span> <span class="c1">; so that the Emacsclient window opens up with Dashboard each time </span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">buffer-face-mode</span> <span class="mi">1</span><span class="p">)</span>           <span class="c1">; so that different fonts can be used on different buffers if needed</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">auto-save-default</span> <span class="no">nil</span><span class="p">)</span>   <span class="c1">; set the default file location of auto-saved files to NIL</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;load-path</span> <span class="p">(</span><span class="nf">expand-file-name</span> <span class="s">&#34;~/.emacs.d/lisp/&#34;</span><span class="p">))</span>     <span class="c1">; load all user-defined Emacs Lisp scripts from this directory</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">default-directory</span>  <span class="s">&#34;~/.emacs.d/lisp/&#34;</span><span class="p">))</span> <span class="p">(</span><span class="nv">normal-top-level-add-to-load-path</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;*&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">use-short-answers</span> <span class="no">t</span><span class="p">)</span>     <span class="c1">; so that yes/no questions in the minibuffer can be answered using y/n</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq-default</span> <span class="nv">tab-width</span> <span class="mi">4</span><span class="p">)</span>     <span class="c1">; make default tab spacing 4</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">delete-selection-mode</span> <span class="mi">1</span><span class="p">)</span>      <span class="c1">; select text and automatically overwrite without typing backspace</span></span></span></code></pre></div>
+</div>
+<hr>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Package configuration
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<hr>
+<p>
+Let&#39;s use <em>Use-package</em> to manage packages <strong>declaratively</strong>. Here are a few packages I recommend:</p>
+<div id="outline-container-headline-7" class="outline-3">
+<h3 id="headline-7">
+Evil mode
+</h3>
+<div id="outline-text-headline-7" class="outline-text-3">
+<p>
+<a href="https://github.com/emacs-evil/evil">Evil</a> is an extensible Vim emulation library for Emacs. It <span style="text-decoration: underline;">faithfully</span> brings almost the keybindings of the <a href="https://github.com/vim/vim">Vim</a> text editor to Emacs, effectively transforming Emacs into a <em>modal editor</em>.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">evil</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span> <span class="p">(</span><span class="nv">evil-mode</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">; initialize evil mode </span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span> <span class="p">(</span><span class="nv">evil-set-undo-system</span> <span class="ss">&#39;undo-redo</span><span class="p">))</span> <span class="c1">; set undo-redo mode to evil&#39;s </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;evil-vars</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-3">
+<h3 id="headline-8">
+Doom Modeline
+</h3>
+<div id="outline-text-headline-8" class="outline-text-3">
+<p>
+<a href="https://github.com/seagle0128/doom-modeline">This</a> modeline is the default one used in Doom Emacs. It&#39;s <em>minimalistic</em>, and includes essential features while appearing <strong>unique</strong>.</p>
+<img src="/EmacsConfig/doom-modeline.png" alt="/EmacsConfig/doom-modeline.png" title="Doom Modeline - https://github.com/seagle0128/doom-modeline"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">doom-modeline</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">doom-modeline-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">doom-modeline-height</span> <span class="mi">25</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+All the icons
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>
+<a href="https://github.com/domtronn/all-the-icons.el">This</a> package provides access to a <strong>vast</strong> set of icons from <em>Github Octicons</em>, <em>FontAwesome</em>, etc. They can be used in Vertico, the modeline, Dired buffers, etc.</p>
+<img src="/EmacsConfig/all-the-icons-dired.png" alt="/EmacsConfig/all-the-icons-dired.png" title="All The Icons - in Dired"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">all-the-icons</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">all-the-icons-completion</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:after</span> <span class="p">(</span><span class="nv">marginalia</span> <span class="nv">all-the-icons</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:hook</span> <span class="p">(</span><span class="nv">marginalia-mode</span> <span class="o">.</span> <span class="nv">all-the-icons-completion-marginalia-setup</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">all-the-icons-completion-mode</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+Vertico
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
+<p>
+<a href="https://github.com/minad/vertico">Vertico</a>, short for VERTical Interactive COmpletion, improves upon the default <em>completion</em> interface in Emacs by providing a <strong>performant</strong> and <strong>minimalistic</strong> completion UI. It enhances the <em>minibuffer</em> interface used <span style="text-decoration: underline;">throughout Emacs</span> for completion.</p>
+<img src="/EmacsConfig/vertico.png" alt="/EmacsConfig/vertico.png" title="Vertico with icons"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">vertico</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">vertico-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">vertico-count</span> <span class="mi">17</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">completion-styles</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">flex</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">completion-category-overrides</span> <span class="o">&#39;</span><span class="p">((</span><span class="nv">file</span> <span class="p">(</span><span class="nv">styles</span> <span class="o">.</span> <span class="p">(</span><span class="nv">partial-completion</span><span class="p">))))))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+Keybindings - General &amp; Which-key
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<p>
+<a href="https://github.com/noctuid/general.el">General</a> provides a convenient, unified way to <strong>create keybindings</strong> in Emacs. It <span style="text-decoration: underline;">integrates well</span> with <em>Evil mode</em>. The <code class="verbatim">general-define-key</code> function allows <strong>more flexibility</strong> in binding keys, compared to the standard <code class="verbatim">define-key</code> function in GNU Emacs.</p>
+<p>
+<a href="https://github.com/justbur/emacs-which-key">Which-key</a> is another package for Emacs that provides a <em>popup</em> displaying the <strong>available keybindings</strong> after a <span style="text-decoration: underline;">particular sequence</span> of keys has been typed. It&#39;s quite useful in discovering keybindings in <em>different modes</em> and in large keymaps.</p>
+<img src="/EmacsConfig/which-key.png" alt="/EmacsConfig/which-key.png" title="General, along with Which-key to manage keybindings"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">general</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">general-evil-setup</span> <span class="no">t</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">which-key</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span> <span class="p">(</span><span class="nv">which-key-mode</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nv">general-define-key</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:states</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">normal</span> <span class="nv">visual</span> <span class="nf">insert</span> <span class="nv">emacs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:keymaps</span> <span class="ss">&#39;override</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:prefix</span> <span class="s">&#34;SPC&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:non-normal-prefix</span> <span class="s">&#34;C-SPC&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;&#34;</span>    <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Leader key&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;.&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">find-file</span> <span class="nb">:which-key</span> <span class="s">&#34;Find file&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;/&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">comment-line</span> <span class="nb">:which-key</span> <span class="s">&#34;Comment line&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;,&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">consult-buffer</span> <span class="nb">:which-key</span> <span class="s">&#34;Switch to buffer&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;:&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nv">eval-expression</span> <span class="nb">:which-key</span> <span class="s">&#34;Eval Elisp exp&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;RET&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">eat</span> <span class="nb">:which-key</span> <span class="s">&#34;Launch terminal &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;f&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Files&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;f f&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">consult-find</span> <span class="nb">:which-key</span> <span class="s">&#34;Find file&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;f s&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">save-buffer</span> <span class="nb">:which-key</span> <span class="s">&#34;Save file&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;f d&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nf">delete-file</span> <span class="nb">:which-key</span> <span class="s">&#34;Delete file&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;f r&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nf">rename-file</span> <span class="nb">:which-key</span> <span class="s">&#34;Rename file&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;f x&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">write-and-quit</span> <span class="nb">:which-key</span> <span class="s">&#34;Save file and quit&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;q&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Quit&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;q q&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">save-buffers-kill-terminal</span> <span class="nb">:which-key</span> <span class="s">&#34;Quit&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;b&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Buffers&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;b k&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">kill-this-buffer</span> <span class="nb">:which-key</span> <span class="s">&#34;Kill buffer&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;b o&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">kill-other-buffers</span> <span class="nb">:which-key</span> <span class="s">&#34;Kill other buffers&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;b x&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">scratch</span> <span class="nb">:which-key</span> <span class="s">&#34;Scratch buffer&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;b s&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">consult-buffer</span> <span class="nb">:which-key</span> <span class="s">&#34;Switch to buffer&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;g&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Git&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;g g&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">magit-status</span> <span class="nb">:which-key</span> <span class="s">&#34;Magit&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;g d&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">magit-diff-unstaged</span> <span class="nb">:which-key</span> <span class="s">&#34;Diff&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;h&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Help&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;h f&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">helpful-function</span> <span class="nb">:which-key</span> <span class="s">&#34;Functions&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;h v&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">helpful-variable</span> <span class="nb">:which-key</span> <span class="s">&#34;Variables&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;h k&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">helpful-key</span> <span class="nb">:which-key</span> <span class="s">&#34;Keymaps&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;h b&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">describe-bindings</span> <span class="nb">:which-key</span> <span class="s">&#34;Bindings&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;h h&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">helpful-symbol</span> <span class="nb">:which-key</span> <span class="s">&#34;All&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;h i&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">info</span> <span class="nb">:which-key</span> <span class="s">&#34;Info&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;i&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Insert&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;i u&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nf">insert-char</span> <span class="nb">:which-key</span> <span class="s">&#34;Unicode character&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;i n&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">nerd-icons-insert</span> <span class="nb">:which-key</span> <span class="s">&#34;Nerd icon&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;c&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Code&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;c f&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">quickrun</span> <span class="nb">:which-key</span> <span class="s">&#34;Execute buffer&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;c e&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">quickrun-region</span> <span class="nb">:which-key</span> <span class="s">&#34;Execute selection&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;c o&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">org-babel-execute-src-block-maybe</span> <span class="nb">:which-key</span> <span class="s">&#34;Execute code block&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;t&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Toggle&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;t f&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">toggle-frame-fullscreen</span> <span class="nb">:which-key</span> <span class="s">&#34;Fullscreen&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;t l&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">display-line-numbers-mode</span> <span class="nb">:which-key</span> <span class="s">&#34;Line numbers&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;t s&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">toggle-scroll-bar</span> <span class="nb">:which-key</span> <span class="s">&#34;Scroll bar&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;t p&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">prettify-symbols-mode</span> <span class="nb">:which-key</span> <span class="s">&#34;Symbols&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;t o&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">clear-eros-overlays</span> <span class="nb">:which-key</span> <span class="s">&#34;Clear overlays&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;t n&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">normal-mode</span> <span class="nb">:which-key</span> <span class="s">&#34;Normal mode&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;t d&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">dashboard-open</span> <span class="nb">:which-key</span> <span class="s">&#34;Dashboard&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;o&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Org&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;o h&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">org-html-export-to-html-and-open</span> <span class="nb">:which-key</span> <span class="s">&#34;Open Org preview&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;w&#34;</span>   <span class="o">&#39;</span><span class="p">(</span><span class="nb">:ignore</span> <span class="no">t</span> <span class="nb">:which-key</span> <span class="s">&#34;Windows&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;w c&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">evil-window-delete</span> <span class="nb">:which-key</span> <span class="s">&#34;Close window&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;w h&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">evil-window-left</span> <span class="nb">:which-key</span> <span class="s">&#34;Move to left&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;w l&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">evil-window-right</span> <span class="nb">:which-key</span> <span class="s">&#34;Move to right&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">general-define-key</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:states</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">visual</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:keymaps</span> <span class="ss">&#39;override</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:prefix</span> <span class="s">&#34;SPC&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:non-normal-prefix</span> <span class="s">&#34;C-SPC&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;/&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">comment-dwim</span> <span class="nb">:which-key</span> <span class="s">&#34;Comment region&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">general-define-key</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:states</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">normal</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">:keymaps</span> <span class="ss">&#39;override-global-map</span>
+</span></span><span class="line"><span class="cl"><span class="s">&#34;s&#34;</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">evil-avy-goto-char-timer</span> <span class="nb">:which-key</span> <span class="s">&#34;Hop to&#34;</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-3">
+<h3 id="headline-12">
+Flycheck
+</h3>
+<div id="outline-text-headline-12" class="outline-text-3">
+<p>
+<a href="https://www.flycheck.org/en/latest/">Flycheck</a> is a modern <em>on-the-fly</em> <strong>syntax checking</strong> package for GNU Emacs. It aims to <strong>replace the classic Flymake</strong>, part of GNU Emacs. It calls upon <em>externally installed</em> <strong>syntax</strong> and <strong>linting checkers</strong> to check code as you write it.</p>
+<img src="/EmacsConfig/flycheck.png" alt="/EmacsConfig/flycheck.png" title="Flycheck displaying an error in C source code"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">flycheck</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">global-flycheck-mode</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
+Magit
+</h3>
+<div id="outline-text-headline-13" class="outline-text-3">
+<p>
+<a href="https://magit.vc">Magit</a> is an interface to the popular <strong>Git</strong> version control system. Implemented <strong>entirely</strong> in Emacs Lisp, it interacts with the command-line <code class="verbatim">git</code> program, and provides <em>functions</em> and <em>keybindings</em> to easily perform <span style="text-decoration: underline;">almost all Git operations</span> from within Emacs.</p>
+<img src="/EmacsConfig/magit.png" alt="/EmacsConfig/magit.png" title="Using Magit to stage files"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">magit</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
+Company-mode
+</h3>
+<div id="outline-text-headline-14" class="outline-text-3">
+<p>
+<a href="https://github.com/company-mode/company-mode">Company mode</a> is a <strong>text completion framework</strong> for GNU Emacs. It uses several back- and front-ends to fetch and display completion candidates, respectively. The backends include <em>files</em>, <em>keywords</em>, etc. Company mode can be <span style="text-decoration: underline;">integrated</span> with <strong>LSP clients</strong> such as <em>Eglot</em> to provide <strong>autocomplete</strong> features through a <em>language server</em>.</p>
+<img src="/EmacsConfig/company-mode.png" alt="/EmacsConfig/company-mode.png" title="Company mode integration with Eglot"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">company</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;prog-mode-hook</span> <span class="ss">&#39;global-company-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;prog-mode-hook</span> <span class="ss">&#39;company-tng-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;prog-mode-hook</span> <span class="ss">&#39;electric-pair-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">company-idle-delay</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">company-minimum-prefix-length</span> <span class="mi">2</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-15" class="outline-3">
+<h3 id="headline-15">
+Eglot
+</h3>
+<div id="outline-text-headline-15" class="outline-text-3">
+<p>
+<a href="https://www.gnu.org/software/emacs/manual/html_mono/eglot.html">Eglot</a> is a client for the <a href="https://en.wikipedia.org/wiki/Language_Server_Protocol">Language Server protocol</a> in Emacs. It provides a set of <em>commands</em> that enhance the source code editing features of GNU Emacs. Since LSP is a <span style="text-decoration: underline;">standard protocol</span> used in various text editors, <strong>external programs</strong> can be invoked to provide programming <strong>language-agnostic</strong> features such as definition of variables, syntax errors, etc. It serves as the <strong>backend</strong> for autocompletion in Company-mode.</p>
+<img src="/EmacsConfig/eglot.png" alt="/EmacsConfig/eglot.png" title="Eglot LSP functionality"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">eglot</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:defer</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:hook</span> <span class="p">(</span><span class="nv">python-mode</span> <span class="o">.</span> <span class="nv">eglot-ensure</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:hook</span> <span class="p">(</span><span class="nv">c-mode</span> <span class="o">.</span> <span class="nv">eglot-ensure</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:hook</span> <span class="p">(</span><span class="nv">c++-mode</span> <span class="o">.</span> <span class="nv">eglot-ensure</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:hook</span> <span class="p">(</span><span class="nv">go-mode</span> <span class="o">.</span> <span class="nv">eglot-ensure</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-16" class="outline-3">
+<h3 id="headline-16">
+Quickrun.el
+</h3>
+<div id="outline-text-headline-16" class="outline-text-3">
+<p>
+<a href="https://github.com/emacsorphanage/quickrun">Quickrun</a> allows you to <strong>execute code</strong> in the <em>current</em> buffer. It supports execution of both <em>interpreted</em> and <em>compiled</em> languages, and even some markup languages.</p>
+<img src="/EmacsConfig/quickrun.png" alt="/EmacsConfig/quickrun.png" title="Quickrun executing C code - inline output display configured using Eros"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">quickrun</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">marginalia</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:after</span> <span class="nv">vertico</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:init</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">marginalia-annotators</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">marginalia-annotators-heavy</span> <span class="nv">marginalia-annotators-light</span> <span class="no">nil</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">marginalia-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">with-eval-after-load</span> <span class="ss">&#39;projectile</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;marginalia-command-categories</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">projectile-find-file</span> <span class="o">.</span> <span class="nv">file</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-17" class="outline-3">
+<h3 id="headline-17">
+Org-mode
+</h3>
+<div id="outline-text-headline-17" class="outline-text-3">
+<p>
+<a href="https://orgmode.org">Org mode</a> is a powerful tool built into GNU Emacs that functions like a <strong>markup language</strong>, helping you maintain notes, TODO lists, etc. The simple language makes it trivial to <strong>structure</strong> and <strong>organize</strong> documents. The language is <strong>specific</strong> to Emacs, and is used extensively in <span style="text-decoration: underline;">literate programming</span> and scientific research. This document is written in Org itself, and it includes markup and <strong>code blocks</strong>, which can be executed directly from within Emacs.</p>
+<img src="/EmacsConfig/orgmode.png" alt="/EmacsConfig/orgmode.png" title="Org document - source code of this blog"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">htmlize</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">org-modern</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:hook</span> <span class="p">(</span><span class="nv">org-mode</span> <span class="o">.</span> <span class="nv">org-modern-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">org-modern-star</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;✪&#34;</span> <span class="s">&#34;✪&#34;</span> <span class="s">&#34;✪&#34;</span> <span class="s">&#34;✪&#34;</span> <span class="s">&#34;✪&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defadvice</span> <span class="nv">org-babel-execute-src-block</span> <span class="p">(</span><span class="nv">around</span> <span class="nv">load-language</span> <span class="no">nil</span> <span class="nv">activate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Load language if needed&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">language</span> <span class="p">(</span><span class="nv">org-element-property</span> <span class="nb">:language</span> <span class="p">(</span><span class="nv">org-element-at-point</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">unless</span> <span class="p">(</span><span class="nf">cdr</span> <span class="p">(</span><span class="nf">assoc</span> <span class="p">(</span><span class="nf">intern</span> <span class="nv">language</span><span class="p">)</span> <span class="nv">org-babel-load-languages</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;org-babel-load-languages</span> <span class="p">(</span><span class="nf">cons</span> <span class="p">(</span><span class="nf">intern</span> <span class="nv">language</span><span class="p">)</span> <span class="no">t</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">org-babel-do-load-languages</span> <span class="ss">&#39;org-babel-load-languages</span> <span class="nv">org-babel-load-languages</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">ad-do-it</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-mode-hook</span> <span class="ss">&#39;org-indent-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">org-src-preserve-indentation</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">org-src-tab-acts-natively</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">org-edit-src-content-indentation</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">org-confirm-babel-evaluate</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">org-hide-emphasis-markers</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">org-babel-do-load-languages</span>
+</span></span><span class="line"><span class="cl"> <span class="ss">&#39;org-babel-load-languages</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">((</span><span class="nv">shell</span> <span class="o">.</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">C</span> <span class="o">.</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">python</span> <span class="o">.</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="p">(</span><span class="nv">emacs-lisp</span> <span class="o">.</span> <span class="no">t</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">;; Configuring Org exports opening in EWW</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">org-html-export-to-html-and-open</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Export the Org file to HTML and open it in EWW.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let*</span> <span class="p">((</span><span class="nv">org-file</span> <span class="p">(</span><span class="nf">buffer-file-name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nv">html-file</span> <span class="p">(</span><span class="nf">concat</span> <span class="p">(</span><span class="nv">file-name-sans-extension</span> <span class="nv">org-file</span><span class="p">)</span> <span class="s">&#34;.html&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">         <span class="p">(</span><span class="nv">html-file-url</span> <span class="nv">html-file</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">org-export-to-file</span> <span class="ss">&#39;html</span> <span class="nv">html-file</span> <span class="no">nil</span> <span class="no">nil</span> <span class="no">nil</span> <span class="no">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">eww-open-file</span> <span class="nv">html-file-url</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;org-mode-hook</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="nv">local-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&#34;C-c C-o&#34;</span><span class="p">)</span> <span class="ss">&#39;org-html-export-to-html-and-open</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">browse-url-browser-function</span> <span class="ss">&#39;eww-browse-url</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-18" class="outline-3">
+<h3 id="headline-18">
+Helpful
+</h3>
+<div id="outline-text-headline-18" class="outline-text-3">
+<p>
+<a href="https://github.com/Wilfred/helpful">Helpful</a> is an Emacs package that <strong>enhances</strong> the builtin help menu in Emacs, by providing <strong>more contextual</strong> info, such as <em>function signature</em>, <em>documentation</em>, <em>keybindings</em>, etc.</p>
+<img src="/EmacsConfig/helpful.png" alt="/EmacsConfig/helpful.png" title="Helpful&#39;s documentation interface"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">helpful</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-19" class="outline-3">
+<h3 id="headline-19">
+Rainbow delimiters
+</h3>
+<div id="outline-text-headline-19" class="outline-text-3">
+<p>
+<a href="https://github.com/Fanael/rainbow-delimiters">Rainbow delimiters</a> provides a mode that <strong>highlights delimiters</strong>, such as &#34;()&#34; and &#34;[]&#34;, according to their <em>depth</em>. This makes it easy to spot <strong>matching parantheses</strong>, brackets, etc.</p>
+<img src="/EmacsConfig/rainbow-delimiters.png" alt="/EmacsConfig/rainbow-delimiters.png" title="Rainbow delimiters in Elisp code"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">rainbow-delimiters</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;prog-mode-hook</span> <span class="ss">&#39;rainbow-delimiters-mode</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-20" class="outline-3">
+<h3 id="headline-20">
+Tree-sitter
+</h3>
+<div id="outline-text-headline-20" class="outline-text-3">
+<p>
+<a href="https://github.com/emacs-tree-sitter/elisp-tree-sitter">This</a> package integrates Emacs and <a href="https://tree-sitter.github.io">Tree-sitter</a>, an <em>incremental parsing</em> library. It provides faster and fine-grained <strong>syntax highlighting</strong> in Emacs, along with <em>syntax trees</em> for source code.</p>
+<img src="/EmacsConfig/tree-sitter.png" alt="/EmacsConfig/tree-sitter.png" title="Tree-sitter&#39;s effect on syntax highlighting"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">tree-sitter</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">tree-sitter-langs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;tree-sitter-mode-hook</span> <span class="ss">&#39;tree-sitter-hl-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;python-mode-hook</span> <span class="nf">#&#39;</span><span class="nv">tree-sitter-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;sh-mode-hook</span> <span class="nf">#&#39;</span><span class="nv">tree-sitter-mode</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-21" class="outline-3">
+<h3 id="headline-21">
+Dashboard
+</h3>
+<div id="outline-text-headline-21" class="outline-text-3">
+<p>
+<a href="https://github.com/emacs-dashboard/emacs-dashboard">Dashboard</a> is an package that provides a customizable <strong>startup screen</strong> for GNU Emacs. It can be configured to show agenda items, bookmarks, <em>recently modified files</em>, etc.</p>
+<img src="/EmacsConfig/dashboard.png" alt="/EmacsConfig/dashboard.png" title="Dashboard, with a different startup image and startup time"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">dashboard</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:config</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">dashboard-setup-startup-hook</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">dashboard-banner-logo-title</span> <span class="ss">&#39;nil</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">dashboard-startup-banner</span> <span class="s">&#34;~/.emacs.d/pics/onedark_logo.svg&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">dashboard-center-content</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">dashboard-show-shortcuts</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">dashboard-items</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">dashboard-set-heading-icons</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">dashboard-set-file-icons</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">      <span class="nv">dashboard-set-footer</span> <span class="no">nil</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-22" class="outline-3">
+<h3 id="headline-22">
+Base 16 OneDark colorscheme
+</h3>
+<div id="outline-text-headline-22" class="outline-text-3">
+<p>
+<a href="https://github.com/tinted-theming/base16-emacs">This</a> package includes a collection of a large number of <em>standard</em> themes, each comprising of <strong>16 base colours</strong>. Since I like the <a href="https://github.com/Binaryify/OneDark-Pro">OneDark</a> colorscheme from the Atom text editor, I&#39;ve set the base16-onedark colorscheme in Emacs too.</p>
+<img src="/EmacsConfig/base16-onedark.png" alt="/EmacsConfig/base16-onedark.png" title="A few themes from the base16-emacs package"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">base16-theme</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">load-theme</span> <span class="ss">&#39;base16-onedark</span> <span class="no">t</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-23" class="outline-3">
+<h3 id="headline-23">
+Diff HL
+</h3>
+<div id="outline-text-headline-23" class="outline-text-3">
+<p>
+<a href="https://github.com/dgutov/diff-hl">Diff-HL</a> is a package for GNU Emacs that provides a mode for <strong>highlighting uncommitted changes</strong> in version-control systems such as Git, Mercurial, etc. These are displayed in the <em>gutter</em> region of the Emacs window.</p>
+<img src="/EmacsConfig/diff-hl.png" alt="/EmacsConfig/diff-hl.png" title="Diff-HL showing Git status in the gutter"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">diff-hl</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;prog-mode-hook</span> <span class="ss">&#39;diff-hl-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">custom-set-faces</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">(</span><span class="nv">diff-hl-change</span> <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="nb">:background</span> <span class="s">&#34;#61afef&#34;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">(</span><span class="nv">diff-hl-insert</span> <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="nb">:background</span> <span class="s">&#34;#97c277&#34;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">(</span><span class="nv">diff-hl-delete</span> <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="nb">:background</span> <span class="s">&#34;#e06c75&#34;</span><span class="p">)))))</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">diff-hl-flydiff-mode</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">global-diff-hl-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;magit-pre-refresh-hook</span> <span class="ss">&#39;diff-hl-magit-pre-refresh</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;magit-post-refresh-hook</span> <span class="ss">&#39;diff-hl-magit-post-refresh</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-24" class="outline-3">
+<h3 id="headline-24">
+Consult
+</h3>
+<div id="outline-text-headline-24" class="outline-text-3">
+<p>
+<a href="https://github.com/minad/consult">Consult</a> is an Emacs package that provides commands to <strong>enhance</strong> the user&#39;s interaction with the <em>minibuffer</em>. It supports <strong>live-previews</strong> for currently open buffers, search within buffers, files, etc.</p>
+<img src="/EmacsConfig/consult.png" alt="/EmacsConfig/consult.png" title="Consult-grep over the entire project, with live preview"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">consult</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-25" class="outline-3">
+<h3 id="headline-25">
+Orderless
+</h3>
+<div id="outline-text-headline-25" class="outline-text-3">
+<p>
+<a href="https://github.com/oantolin/orderless">Orderless</a> provides a completion style with higher <em>control</em> and <em>flexibility</em> over <strong>completion</strong>, than that provided by default in GNU Emacs. I&#39;ve configured it to make <em>file</em> autocompletion find <strong>partial</strong> matches.</p>
+<img src="/EmacsConfig/orderless.png" alt="/EmacsConfig/orderless.png" title="Orderless used in Dired file matching, alongside Vertico"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">orderless</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:ensure</span> <span class="no">t</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:custom</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">completion-styles</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">orderless</span> <span class="nv">basic</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">completion-category-overrides</span> <span class="o">&#39;</span><span class="p">((</span><span class="nv">file</span> <span class="p">(</span><span class="nv">styles</span> <span class="nv">basic</span> <span class="nv">partial-completion</span><span class="p">)))))</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-26" class="outline-3">
+<h3 id="headline-26">
+Eros
+</h3>
+<div id="outline-text-headline-26" class="outline-text-3">
+<p>
+<a href="https://github.com/xiongtx/eros">Eros</a>, short for <code class="verbatim">E</code> valuation <code class="verbatim">R</code> esults <code class="verbatim">O</code> verlay <code class="verbatim">S</code>, displays results from <strong>evaluating Emacs Lisp</strong> code inside a <em>temporary annotation</em> within the buffer. This is useful to display the <strong>output</strong> of code execution without having to switch to a <em>scratch</em> buffer. The below code configures <strong>Quickrun</strong> to be a backend for Eros, which enables it to display the output of code executed in various languages.</p>
+<img src="/EmacsConfig/eros.png" alt="/EmacsConfig/eros.png" title="Eros showing execution of Emacs Lisp code"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">eros</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">:after</span> <span class="nv">quickrun</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;quickrun</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;eros</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">eros-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">custom-set-faces</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">(</span><span class="nv">eros-result-overlay-face</span> <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="nb">:foreground</span> <span class="s">&#34;#000000&#34;</span> <span class="nb">:background</span> <span class="s">&#34;#61afef&#34;</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl"> <span class="o">&#39;</span><span class="p">(</span><span class="nv">eros-eval-overlay-face</span> <span class="p">((</span><span class="no">t</span> <span class="p">(</span><span class="nb">:background</span> <span class="s">&#34;#61afef&#34;</span> <span class="nb">:foreground</span> <span class="s">&#34;#97c277&#34;</span><span class="p">)))))</span> <span class="c1">; not sure what this line does</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">clear-eros-overlays</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">remove-overlays</span> <span class="p">(</span><span class="nf">point-min</span><span class="p">)</span> <span class="p">(</span><span class="nf">point-max</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">quickrun-hide-window-after-execution</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">win</span> <span class="p">(</span><span class="nf">get-buffer-window</span> <span class="s">&#34;*quickrun*&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">when</span> <span class="nv">win</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nv">delete-window</span> <span class="nv">win</span><span class="p">))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">eros-quickrun-show-overlay</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">eros-mode</span> <span class="mi">-1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">eros-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">and</span> <span class="nv">quickrun--timeout-timer</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nv">not</span> <span class="p">(</span><span class="nf">equal</span> <span class="nv">quickrun--timeout-timer</span> <span class="ss">&#39;ignore</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nv">cancel-timer</span> <span class="nv">quickrun--timeout-timer</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">setq</span> <span class="nv">quickrun--timeout-timer</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="nv">run-at-time</span> <span class="mf">0.5</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">                     <span class="p">(</span><span class="nb">lambda</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">                       <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">output</span> <span class="p">(</span><span class="nb">with-current-buffer</span> <span class="nv">quickrun--buffer-name</span>
+</span></span><span class="line"><span class="cl">                                       <span class="p">(</span><span class="nf">buffer-substring-no-properties</span> <span class="p">(</span><span class="nf">point-min</span><span class="p">)</span> <span class="p">(</span><span class="nf">point-max</span><span class="p">)))))</span>
+</span></span><span class="line"><span class="cl">                         <span class="p">(</span><span class="nb">with-current-buffer</span> <span class="p">(</span><span class="nf">window-buffer</span> <span class="p">(</span><span class="nf">selected-window</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                           <span class="p">(</span><span class="nb">condition-case</span> <span class="no">nil</span>
+</span></span><span class="line"><span class="cl">                               <span class="p">(</span><span class="nv">eros--make-result-overlay</span> <span class="nv">output</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                             <span class="p">(</span><span class="ne">error</span> <span class="p">(</span><span class="nf">message</span> <span class="s">&#34;Error creating Eros overlay&#34;</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">                           <span class="p">(</span><span class="nb">with-current-buffer</span> <span class="nv">quickrun--buffer-name</span>
+</span></span><span class="line"><span class="cl">                             <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">inhibit-read-only</span> <span class="no">t</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">                               <span class="p">(</span><span class="nf">erase-buffer</span><span class="p">)))))))))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">setq</span> <span class="nv">quickrun-focus-p</span> <span class="no">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;quickrun-after-run-hook</span> <span class="ss">&#39;eros-quickrun-show-overlay</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;quickrun-after-run-hook</span> <span class="ss">&#39;clear-eros-overlays</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">&#39;quickrun-after-run-hook</span> <span class="ss">&#39;quickrun-hide-window-after-execution</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-27" class="outline-3">
+<h3 id="headline-27">
+Eat
+</h3>
+<div id="outline-text-headline-27" class="outline-text-3">
+<p>
+<a href="https://codeberg.org/akib/emacs-eat">Emulate A Terminal</a> is a terminal emulator written <strong>entirely</strong> in Emacs Lisp. It&#39;s thrice as fast as <em>Term</em>, the terminal <strong>built-in</strong> to Emacs. It has several distinct features, such as <em>sixel support</em>, <em>shell integration</em>, etc.</p>
+<img src="/EmacsConfig/eat.png" alt="/EmacsConfig/eat.png" title="EAT"/>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">eat</span><span class="p">)</span></span></span></code></pre></div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-28" class="outline-2">
+<h2 id="headline-28">
+Miscellaneous functions
+</h2>
+<div id="outline-text-headline-28" class="outline-text-2">
+<hr>
+<p>
+Given below are a few <em>helper</em> functions for a few keybindings.</p>
+<ul>
+<li>Function to write buffers and quit, with confirmation for unsaved buffers.</li>
+</ul>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">write-and-quit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">save-some-buffers</span> <span class="no">t</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">kill-emacs</span><span class="p">))</span></span></span></code></pre></div>
+</div>
+<ul>
+<li>This function creates new numbered scratch buffers.</li>
+</ul>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">scratch</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;Create a new scratch buffer to work in&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">let</span> <span class="p">((</span><span class="nv">n</span> <span class="mi">0</span><span class="p">)</span> <span class="nv">bufname</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="nb">while</span> <span class="p">(</span><span class="nb">progn</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nb">setq</span> <span class="nv">bufname</span> <span class="p">(</span><span class="nf">concat</span> <span class="s">&#34;*scratch&#34;</span> <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nf">=</span> <span class="nv">n</span> <span class="mi">0</span><span class="p">)</span> <span class="s">&#34;&#34;</span> <span class="p">(</span><span class="nv">int-to-string</span> <span class="nv">n</span><span class="p">))</span> <span class="s">&#34;*&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nb">setq</span> <span class="nv">n</span> <span class="p">(</span><span class="nf">1+</span> <span class="nv">n</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">             <span class="p">(</span><span class="nf">get-buffer</span> <span class="nv">bufname</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">switch-to-buffer</span> <span class="p">(</span><span class="nf">get-buffer-create</span> <span class="nv">bufname</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">if</span> <span class="p">(</span><span class="nf">=</span> <span class="nv">n</span> <span class="mi">1</span><span class="p">)</span> <span class="nv">initial-major-mode</span><span class="p">)))</span></span></span></code></pre></div>
+</div>
+<ul>
+<li>This function kills all other buffers, while retaining just the Dashboard buffer.</li>
+</ul>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="line"><span class="cl"><span class="p">(</span><span class="nb">defun</span> <span class="nv">kill-other-buffers</span> <span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">interactive</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;protbuf</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nv">protect-buffer-from-kill-mode</span> <span class="no">nil</span> <span class="p">(</span><span class="nf">get-buffer</span> <span class="s">&#34;*dashboard*&#34;</span><span class="p">))</span> <span class="c1">; protecting Dashboard buffer from SPC b o</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nf">mapc</span> <span class="ss">&#39;kill-buffer</span> <span class="p">(</span><span class="nf">delq</span> <span class="p">(</span><span class="nf">current-buffer</span><span class="p">)</span> <span class="p">(</span><span class="nf">buffer-list</span><span class="p">))))</span></span></span></code></pre></div>
+</div>
+<hr>
+</div>
+</div>
+<div id="outline-container-headline-29" class="outline-2">
+<h2 id="headline-29">
+Conclusion
+</h2>
+<div id="outline-text-headline-29" class="outline-text-2">
+<hr>
+<p>
+This is, <em>by no stretch of imagination</em>, an exhaustive list of Emacs packages. This configuration is merely a <strong>starting point</strong>. Being <span style="text-decoration: underline;">highly</span> customizable, you may continue to <strong>explore</strong>, <strong>adapt</strong> and create an <em>environment</em> that best suites your workflow.</p>
+<hr>
+<hr>
+</div>
+</div>
+
+      </div></div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
