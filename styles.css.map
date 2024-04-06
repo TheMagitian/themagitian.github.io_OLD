@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/home/mgtn/Documents/Blogs/mgtnblog",
+	"sourceRoot": "/home/mgtn/Documents/Blogs/blog/mgtnblog",
 	"sources": [
 		"css/base.scss",
 		"themes/terminal/assets/css/variables.scss",
